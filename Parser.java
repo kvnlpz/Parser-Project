@@ -74,14 +74,9 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
  */
 
 
-import java.security.PublicKey;
-import java.sql.Struct;
-
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Parser {
 
@@ -113,53 +108,105 @@ public class Parser {
     }
 
     public void R1() {
-        System.out.println("Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$");
+        if(flag){
+            System.out.println("Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$");
+
+        }
 
     }
 
-    public void R2() {
-        System.out.println("Opt Function Definitions> ::= <Function Definitions>     |  <Empty>");
+    public TokenListManager R2(TokenListManager manager) {
+        if(flag){
+            System.out.println("Opt Function Definitions> ::= <Function Definitions>     |  <Empty>");
+
+        }
+        manager.getCurrentToken();
+        if(manager.getCurrentToken().data != "function"){
+            return manager;
+        }
+
+
+        return R3(manager);
+    }
+
+    public TokenListManager R3(TokenListManager manager) {
+        if(flag){
+            System.out.println("Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ");
+
+        }
+        R4(manager);
+
+
+        return R2(manager);
+    }
+
+    public void R4(TokenListManager manager) {
+        if(flag){
+            System.out.println("Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>");
+
+        }
+        manager.getCurrentToken();
+
+
+        if(manager.getCurrentToken().data != "("){
+            printError(manager);
+        }
+
+        //TODO() FINISH THIS, COMPARE TO THE LINK SENT ON DISCORD
 
     }
 
-    public void R3() {
-        System.out.println("Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ");
+    public TokenListManager R5(TokenListManager manager) {
+        if(flag){
+            System.out.println("Opt Parameter List> ::=  <Parameter List>    |     <Empty>");
+        }
+
+        //record latest = callLexer(out, source);
+
+        if (manager.getCurrentToken().type != Lexer.TokenType.IDENTIFIER) {
+            return manager;
+        }
+        return Para_List(out, source, latest);
 
     }
 
-    public void R4() {
-        System.out.println("Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>");
+    public void R6(TokenListManager manager) {
+        if(flag){
+            System.out.println("Parameter List>  ::=  <Parameter>    |     <Parameter> , <Parameter List>");
+        }
 
-    }
-
-    public void R5() {
-        System.out.println("Opt Parameter List> ::=  <Parameter List>    |     <Empty>");
-
-    }
-
-    public void R6() {
-        System.out.println("Parameter List>  ::=  <Parameter>    |     <Parameter> , <Parameter List>");
-
+        if(manager.getCurrentToken().data == ","){
+            return R7(manager);
+        }
+        if (latest.getLexeme() == ",")
+            return Para_List(out, source, callLexer(out, source));
+        else
+            return latest;
     }
 
     public void R7() {
-        System.out.println("Parameter> ::=  <IDs >  <Qualifier> ");
+        if(flag){
+            System.out.println("Parameter> ::=  <IDs >  <Qualifier> ");
+        }
+
 
     }
 
-    public void R8(Lexer.Token current) {
+    public void R8(TokenListManager manager) {
         if(flag){
             System.out.println("Qualifier> ::= int     |    boolean    |  real ");
 
         }
-
-        if(current.type != Lexer.TokenType.NUMBER){
-            return;
-        }
-        else{
-            //expected qualifier: int or whatever
-            printError(current);
-        }
+//        if(manager.getCurrentToken().type != Lexer.TokenType.NUMBER){
+//
+//        }
+//        if(current.type != Lexer.TokenType.NUMBER){
+//            return;
+//        }
+//        else{
+//            expected qualifier: int or whatever
+//            printError(current);
+//        }
 
     }
 
@@ -184,29 +231,36 @@ public class Parser {
     }
 
     //Identifiers
-    public Lexer.Token R13(Lexer.Token current) {
+    public TokenListManager R13(TokenListManager manager) {
         if(flag){
             System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <IDs>");
         }
-        if(current.type != Lexer.TokenType.IDENTIFIER){
-            printError(current);
+
+
+        if(manager.getCurrentToken().type != Lexer.TokenType.IDENTIFIER){
+            printError(manager);
         }
-        else {
-            return  R13Empty(current);
-        }
-        return current; //placeholder, chane later
+
+
+            return  R13Empty(manager);
+
     }
 
-    private Lexer.Token R13Empty(Lexer.Token current) {
+    private TokenListManager R13Empty(TokenListManager manager) {
         if(flag){
             System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <Empty>");
+        }
+        manager.getNextToken();
+        if(manager.getCurrentToken().data.equals(",")){
+            return R13(manager);
 
         }
-
-        return  current; //placeholder, change later
+        manager.printCurrentToken();
+        return  manager; //placeholder, change later
     }
 
-    private void printError(Lexer.Token current) {
+    private void printError(TokenListManager manager){
+
     }
 
     public void R14() {

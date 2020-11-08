@@ -53,7 +53,7 @@ public class Lexer {
         NUMBER("[0-9]*\\.?[0-9]"),
         OPERATOR("[*|/|+|-]"),
         WHITESPACE("[ \t\f\r\n]+"),
-        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for)(?![a-zA-Z0-9])"),
+        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function)(?![a-zA-Z0-9])"),
         IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
         SEPARATOR("[^a-zA-Z\\d\\s:]");
         public final String pattern;

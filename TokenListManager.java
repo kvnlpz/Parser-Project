@@ -9,6 +9,16 @@ public class TokenListManager {
     }
 
 
+
+
+    public Lexer.Token getCurrentToken(){
+        return tokens.get(currentIndex);
+    }
+
+    public void printCurrentToken(){
+        System.out.println(tokens.get(currentIndex));
+    }
+
     public boolean hasNextToken(){
         if(tokens.get(currentIndex+1) == null){
             return false;

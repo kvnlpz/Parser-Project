@@ -45,7 +45,7 @@ public class Main {
         // Create tokens and print them
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
 
-        Parser parser = new Parser(tokens);
+//        Parser parser = new Parser(tokens);
 
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
