@@ -29,3 +29,19 @@ IF syntax errors occur, parser should:
     - line number
     - error type
     - etc
+    
+    
+    
+    
+    
+    
+    
+    TODO()
+    
+    
+    - create makeTable() <- creates a symbol table 
+    - translate() <- translates our table 
+    - create printOut() <- main function responsble for the output shown by the prof
+    - create readFile() <- make it be able to take as many arguments as needed
+    - we need to figure out how to create a table from withing our Lexer class and then let that table be used by the parser class
+    - more will be added 
