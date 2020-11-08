@@ -87,7 +87,6 @@ public class Parser {
 
     }
 
-
     public void R1() {
         System.out.println("Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$");
 
