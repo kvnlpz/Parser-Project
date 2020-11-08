@@ -3,11 +3,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lexer {
-
-    private final String input;
-
+    String input;
     public Lexer(String input) {
-
         this.input = input;
     }
 
