@@ -44,6 +44,9 @@ public class Main {
         FileWriter file = new FileWriter("output.txt");
         // Create tokens and print them
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
+
+        Parser parser = new Parser();
+
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
             file.write(token.toString() + "\n");

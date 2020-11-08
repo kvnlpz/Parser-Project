@@ -74,16 +74,26 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
  */
 
 
+import java.sql.Struct;
+
+import java.util.ArrayList;
+import java.util.Currency;
+
 public class Parser {
 
     public static Lexer lexer;
+    public static ArrayList<Lexer.Token> tokenArrayList;
     public static String table[];
     public static String symbolsArry[];
     public static String nonTerminalArray[];
+    public boolean flag;
 
 
     // class constructor
-    public Parser() {
+    public Parser(ArrayList<Lexer.Token> token) {
+
+        tokenArrayList = token;
+        flag = true;
 
     }
 
@@ -122,8 +132,19 @@ public class Parser {
 
     }
 
-    public void R8() {
-        System.out.println("Qualifier> ::= int     |    boolean    |  real ");
+    public void R8(Lexer.Token current) {
+        if(flag){
+            System.out.println("Qualifier> ::= int     |    boolean    |  real ");
+
+        }
+
+        if(current.type != Lexer.TokenType.NUMBER){
+            return;
+        }
+        else{
+            //expected qualifier: int or whatever
+            printError(current);
+        }
 
     }
 
@@ -147,9 +168,28 @@ public class Parser {
 
     }
 
-    public void R13() {
-        System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <IDs>");
+    //Identifiers
+    public Lexer.Token R13(Lexer.Token current) {
+        if(flag){
+            System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <IDs>");
+        }
+        if(current.type != Lexer.TokenType.IDENTIFIER){
+            printError(current);
+        }
+        else {
+            return  R13Empty(current);
+        }
+    }
 
+    private Lexer.Token R13Empty(Lexer.Token current) {
+        if(flag){
+            System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <Empty>");
+
+        }
+
+    }
+
+    private void printError(Lexer.Token current) {
     }
 
     public void R14() {
