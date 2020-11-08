@@ -30,7 +30,7 @@ public class Main {
                 String line = scanner.nextLine();
 //                System.out.println(line);
                 fileContents.append(line);
-                System.out.printf(line);
+//                System.out.println(line);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -45,12 +45,12 @@ public class Main {
         // Create tokens and print them
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
 
-        Parser parser = new Parser();
+        Parser parser = new Parser(tokens);
 
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
             file.write(token.toString() + "\n");
-            System.out.println(token.toString());
+//            System.out.println(token.toString());
         }
         file.close();
     }

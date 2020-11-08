@@ -74,10 +74,14 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
  */
 
 
+import java.security.PublicKey;
 import java.sql.Struct;
 
 import java.util.ArrayList;
 import java.util.Currency;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Parser {
 
@@ -87,14 +91,25 @@ public class Parser {
     public static String symbolsArry[];
     public static String nonTerminalArray[];
     public boolean flag;
+    List<Lexer.Token> tokensLinkedList;
 
 
     // class constructor
     public Parser(ArrayList<Lexer.Token> token) {
 
         tokenArrayList = token;
+        tokensLinkedList = convertALtoLL(tokenArrayList);
+//        System.out.println(tokenArrayList);
+//        System.out.println(tokensLinkedList);
         flag = true;
+        TokenListManager tokenListManager = new TokenListManager(tokenArrayList);
+        Lexer.Token test = tokenListManager.getNextToken();
+        System.out.println(tokenListManager.getNextToken());
+        while (test != null){
+            test = tokenListManager.getNextToken();
+            System.out.println(test);
 
+        }
     }
 
     public void R1() {
@@ -179,6 +194,7 @@ public class Parser {
         else {
             return  R13Empty(current);
         }
+        return current; //placeholder, chane later
     }
 
     private Lexer.Token R13Empty(Lexer.Token current) {
@@ -187,6 +203,7 @@ public class Parser {
 
         }
 
+        return  current; //placeholder, change later
     }
 
     private void printError(Lexer.Token current) {
@@ -281,5 +298,16 @@ public class Parser {
 
     }
 
+
+
+
+    // ArrayList to LinkedList
+    public static <T> List<T> convertALtoLL(
+            List<T> aL)
+    {
+
+        // Return the converted LinkedList
+        return new LinkedList<>(aL);
+    }
 
 }
