@@ -60,6 +60,22 @@ public class Main {
 
         Parser parser = new Parser(tokens, o);
 
+        System.out.println("-----------------------------");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|     ----====lexer====----  |");
+        System.out.println("|     ----====lexer====----  |");
+        System.out.println("|     ----====lexer====----  |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("|                            |");
+        System.out.println("-----------------------------");
+
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
 //            file.write(token.toString() + "\n");

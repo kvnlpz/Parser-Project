@@ -85,7 +85,7 @@ import java.util.List;
 public class Parser {
 
     //like up here something like this
-    public  static  TokenListManager manager;
+    public   TokenListManager manager;
 
     public static Lexer lexer;
     public static ArrayList<Lexer.Token> tokenArrayList;
@@ -120,39 +120,35 @@ public class Parser {
         tokenArrayList = token;
         tokensLinkedList = convertALtoLL(tokenArrayList);
         flag = true;
-
+//        System.out.println(manager.getCurrentToken().toString());
+//        System.out.println(manager.getNextToken());
+//        System.out.println(manager.getNextToken());
+//        System.out.println(manager.getNextToken());
         R1();
     }
 
     public void R1() {
-        if(flag){
+        if(flag) {
             System.out.println("Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$");
-            Lexer.Token token = new Lexer.Token(Lexer.TokenType.IDENTIFIER, "", 0);
-
-            token = R2(token);
-            if(!token.data.equals("$$")){
-                printError(token, "$$");
-            }
-            token = R10(token);
-            token = R14(token);
-            if(!token.data.equals("$$")){
-                printError(token, "$$");
-            }
-
-
         }
+
+            Lexer.Token token = new Lexer.Token(Lexer.TokenType.IDENTIFIER, "", 0);
+            token = R2(token); //OFD
+            if(!token.data.equals("$$")){
+                printError(token, "$$");
+            }
+            token = R10(token); //ODL
+            token = R14(token); // STATEMENT LIST
+            if(!token.data.equals("$$")){
+                printError(token, "$$");
+            }
 
     }
 
     //OPT FUNCTION DEFINITION EMPTY
     public Lexer.Token R2(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("Opt Function Definitions> ::= <Function Definitions>     |  <Empty>");
-
-        }
-        manager.getCurrentToken();
+        if(flag){ System.out.println("Opt Function Definitions> ::= <Function Definitions>     |  <Empty>");}
+        token = manager.getCurrentToken();
         if(!manager.getCurrentToken().data.equals("function")){
             return manager.getCurrentToken();
         }
@@ -166,153 +162,108 @@ public class Parser {
         return R3(token);
     }
 
-    //OPT FUNCTION DEFINITION
+    // FUNCTION DEFINITION
     public Lexer.Token R3(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ");
-        }
-        R4(token);
-        //send to OPT FUNCTION EMPTY
-        return R2(token);//TODO
+        if(flag){ System.out.println("Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ");}
+        R4(token);//FUNCTION
+        //send to FUNC  EMPTY
+        return R4EMPTY(token);
     }
 
     //function
-    //OPT DECLARATION LIST
     public void R4(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>");
-        }
-
-        manager.getCurrentToken();
+        if(flag){ System.out.println("Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>"); }
+//        manager.getCurrentToken();
         token = manager.getNextToken();
-        token = R13(token);
-
-        if(!token.data.equals("(")){
-            printError(token, "Missing left parenthesis '('");
-        }
+        token = R13(token);//IDS
+        if(!token.data.equals("(")){printError(token, "Missing left parenthesis '('");}
+        //OPL
         token = R5(token);
-
-        if(!token.data.equals(")")){
-            printError(token, "Missing right parenthesis ')'");
-        }
-
-        token = R10(token);
+        if(!token.data.equals(")")){ printError(token, "Missing right parenthesis ')'");}
+        token = R10(token);//ODL
         R9(token);
-
     }
 
     //public Lexer.Token R4Empty(Lexer.Token token)
-    public void R4EMPTY(Lexer.Token token){
-
-
-        if(flag){
-            System.out.println("<Opt Declaration List> ::= <Declaration List> | <Empty>");
+    public Lexer.Token R4EMPTY(Lexer.Token token){
+        if(flag){System.out.println("<Function Definitions>' ::= <Function Definitions> | <Empty>");}
+        token = manager.getNextToken();
+        if(token.data.equals("function")){
+            return  token;
         }
-        //token = manager.getNextToken();
-        if(token.data.equals("int") || token.data.equals("real") || token.data.equals("boolean")){
-            //return R11(token);
-            R11(manager.getNextToken());
+        else {
+            return R3(token);//function definitions
         }
     }
 
     //if the parameter list didnt end, and continues to the next line, then we send it to R5
     //if the parameter list continues
-    //OPT PARAMETER LIST
+    //OPT PARAMETER LIST OPL EMPTY
     public Lexer.Token R5(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("Opt Parameter List> ::=  <Parameter List>    |     <Empty>");
-        }
-
-
+        if(flag){System.out.println("Opt Parameter List> ::=  <Parameter List>    |     <Empty>");}
         token = manager.getNextToken(); //get the new latest token
-
-        if (manager.getCurrentToken().type != Lexer.TokenType.IDENTIFIER) {
-            return R6(manager.getNextToken());
+        if (token.type != Lexer.TokenType.IDENTIFIER) {
+//            return R6(manager.getNextToken());
+            return token;
         }
-        return R6(token);
+        return R6(token);//parameter list
 
     }
 
     //R6() is for when the parameter list keeps going and stays on the same line like this par1, par2, par3
     public Lexer.Token R6(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("Parameter List>  ::=  <Parameter>    |     <Parameter> , <Parameter List>");
-        }
-        R7(manager.getCurrentToken());
-        return R5(manager.getNextToken()); //send in the next token
+        if(flag){System.out.println("Parameter List>  ::=  <Parameter>    |     <Parameter> , <Parameter List>");}
+        R7(manager.getCurrentToken());//PARAMETER FUNCITON
+        return R5(manager.getNextToken()); //PARAMETER EMPTY FUNCTION SO R5
     }
+
+
+
     //Parameter
-    public void R7(Lexer.Token currentToken) {
-        System.out.println(currentToken.toString());
-
-        if(flag){
-            System.out.println("Parameter> ::=  <IDs >  <Qualifier> ");
-        }
+    public void R7(Lexer.Token token) {
+        if(flag){System.out.println("Parameter> ::=  <IDs >  <Qualifier> ");}
+//        System.out.println(currentToken.toString());
+        token = R13(token);
         //send to Qualifier function
-        R8(manager.getNextToken());
+        R8(token);//Qualifier function
 
 
-    } //done
+    }
     //Qualifier
     public void R8(Lexer.Token token) {
-
-
-        if (flag) {
-            System.out.println("Qualifier> ::= int     |    boolean    |  real ");
-        }
-        if (manager.getCurrentToken().type == Lexer.TokenType.NUMBER) {
+        if (flag) {System.out.println("Qualifier> ::= int     |    boolean    |  real ");}
+        if (token.data.equals("int")||token.data.equals("boolean")|| token.data.equals("real")) {
             return; //break
         } else {
-            printError(manager.getCurrentToken(),"NUMBERTYPE");//send in the token to print out the error
-
+            printError(manager.getCurrentToken(),"NUMBER TYPE");//send in the token to print out the error
         }
-    } //done
+    }
 
     //BODY
     public void R9(Lexer.Token token) {
-
-
-        if (flag) {
-            System.out.println("<Body>  ::=  {  < Statement List>  }");
-        }
+        if (flag) { System.out.println("<Body>  ::=  {  < Statement List>  }");}
         if(!token.data.equals("{")){
             printError(token, "{"); //make it print expected {
         }
         token = manager.getNextToken();
-        token = R14(token);
+        token = R14(token); //satement list
         if(token.data.equals("}")){
             printError(token, "}"); //print out token and expected: }
-
         }
-
-
     }
 
     //OPT Declaration List
     //ODL ODL ODL ODL ODL ODL ODL
     public Lexer.Token R10(Lexer.Token token) {
-
-
-        if (flag) {
-            System.out.println("<Opt Declaration List> ::= <Declaration List>   |    <Empty>");
-        }
+        if (flag) {System.out.println("<Opt Declaration List> ::= <Declaration List> | <Empty>");}
+        token = manager.getNextToken();
         if(token.data.equals("int")|| token.data.equals("boolean")||token.data.equals("real")){
             return R11(token);
         }
-
         else {
             return token;
     //            printError(manager.getCurrentToken(), "R10 FUNCTION BOI");
         }
-
     }
 
     //declartion list
