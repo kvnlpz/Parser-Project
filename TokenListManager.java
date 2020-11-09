@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class TokenListManager {
     int currentIndex;
     ArrayList<Lexer.Token> tokens;
+
+
     public TokenListManager(ArrayList<Lexer.Token> tokens){
         currentIndex = 0;
         this.tokens = tokens;
