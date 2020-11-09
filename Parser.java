@@ -82,6 +82,9 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
 //import sun.net.www.content.text.PlainTextInputStream;
 
 //import java.lang.management.MemoryNotificationInfo;
+//import javax.swing.plaf.PanelUI;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -100,9 +103,23 @@ public class Parser {
     List<Lexer.Token> tokensLinkedList;
 
 
+    FileWriter file;
+    // Create tokens and print them
+    ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
+
+    Parser parser = new Parser(tokens);
+
+
     // class constructor
-    public Parser(ArrayList<Lexer.Token> token) {
+    public Parser(ArrayList<Lexer.Token> token) throws IOException {
+        try {
+            file = new FileWriter("output.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //h it worked LMAO
+        System.setOut(file);
         manager = new TokenListManager(token);
 
         tokenArrayList = token;
@@ -134,7 +151,6 @@ public class Parser {
             token = R14(token);
             if(!token.data.equals("$$")){
                 printError(token, "$$");
-
             }
 
 
@@ -280,41 +296,61 @@ public class Parser {
 
     }
 
-    //OPT Declaration List empty
-    //ODL
+    //OPT Declaration List
+    //ODL ODL ODL ODL ODL ODL ODL
     public Lexer.Token R10(Lexer.Token token) {
         if (flag) {
             System.out.println("<Opt Declaration List> ::= <Declaration List>   |    <Empty>");
         }
 //        token = manager.getNextToken();
-        if(manager.getCurrentToken().type == Lexer.TokenType.KEYWORD) {
-            R11(manager.getNextToken());
+//        if(manager.getCurrentToken().type == Lexer.TokenType.KEYWORD) {
+//            return R11(manager.getNextToken());
+//        }
+        if(token.data.equals("int")|| token.data.equals("boolean")||token.data.equals("real")){
+            return R11(token);
         }
 //        if(manager.getCurrentToken().data.equals("int") || manager.getCurrentToken().data.equals("boolean")||manager.getCurrentToken().data.equals("real")){
 //
 //        }
         else {
-            printError(manager.getCurrentToken(), "R10 FUNCTION BOI");
+            return token;
+//            printError(manager.getCurrentToken(), "R10 FUNCTION BOI");
         }
-        return token;
-    } //R10 DONE
+
+    }
 
     //declartion list
-    public void R11(Lexer.Token token) {
+    public Lexer.Token R11(Lexer.Token token) {
     if(flag) {
         System.out.println("<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>");
     }
         R12();
-        if(manager.getCurrentToken().data.equals(";"))
+        if(!manager.getCurrentToken().data.equals(";"))
         {
-            if(manager.getCurrentToken().type == Lexer.TokenType.KEYWORD)
-            {
-                R11(manager.getCurrentToken());
-            }
+            printError(token, ";");
+//
+//            if(manager.getCurrentToken().type == Lexer.TokenType.KEYWORD)
+//            {
+//                R11(manager.getCurrentToken());
+//            }
         }
-        else
-        {
-            printError(manager.getCurrentToken(), ";");
+//        else
+//        {
+//            printError(manager.getCurrentToken(), ";");
+//        }
+        return  R11Empty(manager.getNextToken());
+    }
+
+    public Lexer.Token R11Empty(Lexer.Token token){
+        if(flag){
+            System.out.println("<Declaration List> ::= <Declaration List>  |  <Empty>");
+        }
+        if(token.data.equals("int")|| token.data.equals("boolean")||token.data.equals("real")){
+            return R11(token);
+
+        }
+        else{
+            return token;
         }
     }
 
@@ -403,7 +439,7 @@ public class Parser {
         }
         else if(manager.getCurrentToken().type == Lexer.TokenType.IDENTIFIER)
         {
-            //assing
+            //assign
             R17();
         }
         else if(manager.getCurrentToken().data.equals("if"))
@@ -434,7 +470,8 @@ public class Parser {
         }
         else
         {
-            printError(manager.getCurrentToken(),"{ or identifier or if or return or put or get or while");
+            System.out.println("this is inside of token: " + token.toString());
+            printError(manager.getCurrentToken(),"{ or OR IDENTIFIER OR KEYWORD");
         }
     }
 

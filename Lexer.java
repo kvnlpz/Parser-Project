@@ -56,7 +56,9 @@ public class Lexer {
         WHITESPACE("[ \t\f\r\n]+"),
         KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function)(?![a-zA-Z0-9])"),
         IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
-        SEPARATOR("\\$+[^a-zA-Z\\d\\s:]"); //\$\$+(?:\.\$)?
+        SEPARATOR("[\\$]{2,2}|[^a-zA-Z\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
+        //[\$]{2,2}|[^a-zA-Z\\ds:]
+
         public final String pattern;
 
         TokenType(String pattern) {
