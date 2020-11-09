@@ -17,8 +17,21 @@ public class Main {
 //    String get_keyword = "get";
 //    String put_keyword = "put";
 
-    public Main() throws IOException {
+    public static PrintStream o;
+
+    static {
+        try {
+            o = new PrintStream(new File("A.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
+    // Store current System.out before assigning a new value
+    public static PrintStream console = System.out;
+
+    // Assign o to output stream
+//        System.setOut(o);
 
     public static void main(String[] args) throws IOException {
         StringBuilder fileContents = new StringBuilder();
@@ -41,18 +54,18 @@ public class Main {
         String input = String.valueOf(fileContents);
         Lexer lex = new Lexer(input);
 
-        FileWriter file = new FileWriter("output.txt");
+//        FileWriter file = new FileWriter("output.txt");
         // Create tokens and print them
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
 
-        Parser parser = new Parser(tokens);
+        Parser parser = new Parser(tokens, o);
 
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
-            file.write(token.toString() + "\n");
+//            file.write(token.toString() + "\n");
             System.out.println(token.toString());
         }
-        file.close();
+//        file.close();
     }
 
 
