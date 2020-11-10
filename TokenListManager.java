@@ -36,7 +36,7 @@ public class TokenListManager {
     }
 
     public boolean hasNextToken(){
-        System.out.println("inside hasNextToken()");
+//        System.out.println("inside hasNextToken()");
         if(tokens.get(this.currentIndex+1) == null){
             return false;
         }
