@@ -95,13 +95,12 @@ public class    Lexer {
         }
 
         public void printRules() {
-            if(!PRules.isEmpty()){
+            if(PRules.size() >= 0){
                 System.out.println("--=RULES=--");
                 for(String s : PRules){
                     System.out.println(s);
                 }
                 System.out.println("--==END=--");
-
 
             }
 

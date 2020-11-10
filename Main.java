@@ -80,8 +80,9 @@ public class Main {
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
 //            file.write(token.toString() + "\n");
-            System.out.print("Token: "+token.type + " Lexeme: " + token.data);
             System.out.println("  ");
+            System.out.println("  ");
+            System.out.println("Token: "+token.type + " Lexeme: " + token.data);
             token.printRules();
 
         }

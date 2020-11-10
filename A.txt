@@ -14,6 +14,22 @@ Qualifier> ::= int     |    boolean    |  real
 <Declaration List> ::= <Declaration List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
 <Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+===============================
+===============================
+===============================
+===============================
+TESTING TESTING TESTING TESTING
+--=RULES=--
+<Declaration List> ::= <Declaration List>  |  <Empty>
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+<Assign> ::=     <Identifier> = <Expression> ;
+--==END=--
+TESTING TESTING TESTING TESTING
+===============================
+===============================
+===============================
+===============================
 <Assign> ::=     <Identifier> = <Expression> ;
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
@@ -22,7 +38,6 @@ Qualifier> ::= int     |    boolean    |  real
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
-Error at line number 21: expected $$ but got i
 -----------------------------
 |                            |
 |                            |
@@ -38,6 +53,8 @@ Error at line number 21: expected $$ but got i
 |                            |
 |                            |
 -----------------------------
+
+
 Token: SEPARATOR Lexeme: $$
 --=RULES=--
 Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
@@ -45,30 +62,52 @@ Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 <Opt Declaration List> ::= <Declaration List> | <Empty>
 --==END=--
+
+
 Token: KEYWORD Lexeme: int
 --=RULES=--
 <Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
 <Declaration> ::=   <Qualifier > <IDs>
 Qualifier> ::= int     |    boolean    |  real
 --==END=--
+
+
 Token: IDENTIFIER Lexeme: i
 --=RULES=--
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END=--
+
+
 Token: SEPARATOR Lexeme: ,
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: max
 --=RULES=--
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END=--
+
+
 Token: SEPARATOR Lexeme: ,
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
 --=RULES=--
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
 --=RULES=--
 <Declaration List> ::= <Declaration List>  |  <Empty>
@@ -76,7 +115,13 @@ Token: IDENTIFIER Lexeme: sum
 <Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Assign> ::=     <Identifier> = <Expression> ;
 --==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: NUMBER Lexeme: 0
 --=RULES=--
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
@@ -84,60 +129,256 @@ Token: NUMBER Lexeme: 0
 <Factor> ::=      -  <Primary>    |    <Primary>
 <Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 --==END=--
+
+
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 --==END=--
+
+
 Token: IDENTIFIER Lexeme: i
 --=RULES=--
 <Statement List> ::= <Statement List>  |  <Empty>
 --==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: NUMBER Lexeme: 1
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: KEYWORD Lexeme: get
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: max
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: KEYWORD Lexeme: if
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: i
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: <
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: max
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: {
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
+--=RULES=--
+--==END=--
+
+
 Token: OPERATOR Lexeme: +
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: i
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: i
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: i
+--=RULES=--
+--==END=--
+
+
 Token: OPERATOR Lexeme: +
+--=RULES=--
+--==END=--
+
+
 Token: NUMBER Lexeme: 1
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: }
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: else
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: {
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: NUMBER Lexeme: 8
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
 Token: NUMBER Lexeme: 10
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: }
+--=RULES=--
+--==END=--
+
+
 Token: KEYWORD Lexeme: if
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: put
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: sum
+--=RULES=--
+--==END=--
+
+
 Token: OPERATOR Lexeme: +
+--=RULES=--
+--==END=--
+
+
 Token: IDENTIFIER Lexeme: max
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
 Token: SEPARATOR Lexeme: $$
+--=RULES=--
+--==END=--

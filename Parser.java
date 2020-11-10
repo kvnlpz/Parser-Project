@@ -133,20 +133,22 @@ public class Parser {
         Lexer.Token token = manager.getCurrentToken();
         token.addToRules(s);
         token = R2(token); //OFD
-        if (!token.data.equals("$$")) {
-            printError(token, "$$");
+        if (token.data.equals("$$")) {
+            token = R10(token); //ODL
+            R14(token); // STATEMENT LIST
         }
-        token = R10(token); //ODL
-        token = R14(token); // STATEMENT LIST
-        if (!token.data.equals("$$")) {
+        else {
             printError(token, "$$");
+
+        }
+        //else (!token.data.equals("$$")) {
 //                System.out.println("THIS IS WHERE THE ERROR WOULD HAVE BEEN");
 //                System.out.println("this is the token: " + token.toString());
         }
 
 
 
-    }
+
 
     //OPT FUNCTION DEFINITION EMPTY
     public Lexer.Token R2(Lexer.Token token) {
@@ -481,7 +483,17 @@ public class Parser {
     public void R17(Lexer.Token token) {
         String s = "<Assign> ::=     <Identifier> = <Expression> ;";
         token.addToRules(s);
-
+        System.out.println("===============================");
+        System.out.println("===============================");
+        System.out.println("===============================");
+        System.out.println("===============================");
+        System.out.println("TESTING TESTING TESTING TESTING");
+        token.printRules();//not the original token from the array, passed by reference
+        System.out.println("TESTING TESTING TESTING TESTING");
+        System.out.println("===============================");
+        System.out.println("===============================");
+        System.out.println("===============================");
+        System.out.println("===============================");
         if (flag) {
             System.out.println(s);
         }
