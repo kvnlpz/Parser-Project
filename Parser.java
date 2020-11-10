@@ -266,32 +266,22 @@ public class Parser {
         }
     }
 
-    //declartion list
+    //declaration list
     public Lexer.Token R11(Lexer.Token token) {
-
-
-        if(flag) {
-            System.out.println("<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>");
-        }
-        R12(token);
+        if(flag) {System.out.println("<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>");}
+        token = R11(token);
         if(!manager.getCurrentToken().data.equals(";"))
         {
             printError(token, ";");
-
         }
-
         return  R11Empty(manager.getNextToken());
     }
 
+    //DECLARATION LIST <EMPTY>
     public Lexer.Token R11Empty(Lexer.Token token){
-
-
-        if(flag){
-            System.out.println("<Declaration List> ::= <Declaration List>  |  <Empty>");
-        }
+        if(flag){System.out.println("<Declaration List> ::= <Declaration List>  |  <Empty>");}
         if(token.data.equals("int")|| token.data.equals("boolean")||token.data.equals("real")){
             return R11(token);
-
         }
         else{
             return token;
@@ -299,24 +289,16 @@ public class Parser {
     }
 
     //Declaration
-    public void R12(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<Declaration> ::=   <Qualifier > <IDs>                   ");
-        }
-        R8(manager.getCurrentToken());
-        R13(manager.getCurrentToken());
-
+    public Lexer.Token R12(Lexer.Token token) {
+        if(flag){System.out.println("<Declaration> ::=   <Qualifier > <IDs> ");}
+        R8(manager.getCurrentToken());//QUALIFIER
+        token = manager.getNextToken();
+        return R13(token);
     }
 
     //Identifiers
     public Lexer.Token R13(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <IDs>");
-        }
+        if(flag){System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <IDs>");}
         if(manager.getCurrentToken().type != Lexer.TokenType.IDENTIFIER){
             printError(manager.getCurrentToken(), "identifier");
         }
@@ -324,72 +306,42 @@ public class Parser {
     }
 
     private Lexer.Token R13Empty(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <Empty>");
-        }
+        if(flag){System.out.println("<IDs> ::=     <Identifier>    | <Identifier>, <Empty>");}
         token = manager.getNextToken();
-        if(manager.getCurrentToken().data.equals(",")){
-            return R13(manager.getNextToken());
-
+        if(token.data.equals(",")){
+            return R13(manager.getNextToken());//calling ID function
         }
         else {
             return token;
         }
     }
-    //printError(Lexer.Token token, String Error)
-    //TODO()
-    // give the function the expected string, named "expected"
     private void printError(Lexer.Token token, String error){
-
-
         System.out.println("Error at line number " + token.lineNumber + ": expected " + error + " but got " + token.data);
     }
 
     //Statement list
     public Lexer.Token R14(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<Statement List> ::=   <Statement>   | <Statement> <Statement List>");
-        }
-
-        R15(token);
-        return R14Empty(token);
-
+        if(flag){System.out.println("<Statement List> ::=   <Statement>   | <Statement> <Statement List>");}
+        R15(token);//Statement
+        return R14Empty(manager.getNextToken());
     }
 
     //if the statement list continues
-
     private Lexer.Token R14Empty(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<Statement List> ::= <Statement List>  |  <Empty>");
-
-        }
+        if(flag){System.out.println("<Statement List> ::= <Statement List>  |  <Empty>");}
         if(token.data.equals("{")||token.data.equals("identifier")
                 ||token.data.equals("if") ||token.data.equals("return")
                 ||token.data.equals("put")||token.data.equals("get")||token.data.equals("while")){
-            return R14(token);
-
+            return R14(token);//statement list
         }
-        else {
-            return token;
-        }
+        else { return token;}
     }
 
 
     //Statement
     // WILL NEED TO CHECK AGAIN
     public void R15(Lexer.Token token) {
-
-
-        if(flag){
-            System.out.println("<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> ");
-        }
-
+        if(flag){System.out.println("<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> ");}
         if(manager.getCurrentToken().data.equals("{"))
         {
             //compound
