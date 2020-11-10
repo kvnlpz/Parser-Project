@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -70,17 +71,43 @@ public class    Lexer {
         public TokenType type;
         public String data;
         public int lineNumber;
+        public ArrayList<String>PRules;
 
         public Token(TokenType type, String data, int lineNumber) {
             this.type = type;
             this.data = data;
             this.lineNumber = lineNumber;
+            PRules = new ArrayList<String>();
+        }
+
+
+        public void addToRules(String s){
+            PRules.add(s);
+//            System.out.println(PRules);
+//            if(!PRules.contains(s)){
+//                PRules.add(s);
+//            }
         }
 
         @Override
         public String toString() {
             return type.name() + " " + data;
         }
+
+        public void printRules() {
+            if(!PRules.isEmpty()){
+                System.out.println("--=RULES=--");
+                for(String s : PRules){
+                    System.out.println(s);
+                }
+                System.out.println("--==END=--");
+
+
+            }
+
+
+        }
     }
+
 
 }

@@ -60,6 +60,7 @@ public class Main {
 
         Parser parser = new Parser(tokens, o);
 
+
         System.out.println("-----------------------------");
         System.out.println("|                            |");
         System.out.println("|                            |");
@@ -79,7 +80,10 @@ public class Main {
         for (Lexer.Token token : tokens) {
 //            System.out.println(token);
 //            file.write(token.toString() + "\n");
-            System.out.println(token.toString());
+            System.out.print("Token: "+token.type + " Lexeme: " + token.data);
+            System.out.println("  ");
+            token.printRules();
+
         }
 //        file.close();
     }
