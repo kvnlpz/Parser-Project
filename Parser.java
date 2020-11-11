@@ -123,7 +123,7 @@ public class Parser {
 
     // class constructor
     public Parser(ArrayList<Lexer.Token> tokens, PrintStream o) throws IOException {
-        manager = new TokenListManager(tokens);
+        manager = new TokenListManager(tokens, o);
         this.o = o;
         // Store current System.out before assigning a new value
         PrintStream console = System.out;
@@ -146,7 +146,7 @@ public class Parser {
 
         tokenArrayList = tokens;
         tokensLinkedList = convertALtoLL(tokenArrayList);
-        flag = false;
+        flag = true;
         R1();
     }
 
@@ -192,7 +192,7 @@ public class Parser {
         manager.addToNewArray(token);
 
         //if (!token.data.equals("function"
-        if (!(token.type == Lexer.TokenType.KEYWORD)) {
+        if (!(token.data.equals("function"))) {
             return manager.getCurrentToken();
         }
 
@@ -590,6 +590,10 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        System.out.println("R18 COMPARINGLEXEMES");
+        System.out.println("R18 COMPARINGLEXEMES");
+        System.out.println("R18 COMPARINGLEXEMES");
+
         compareLexemes("(");//CHECK THIS FUCNCTION
         R23(token);//CONDITION FUNCTION
         compareLexemes(")");
@@ -609,6 +613,10 @@ public class Parser {
             return;
         } else if (token.data.equals("else")) {
             R15(manager.getNextToken());//STATEMENT
+            System.out.println("R18fi COMPARINGLEXEMES");
+            System.out.println("R18fi COMPARINGLEXEMES");
+            System.out.println("R18fi COMPARINGLEXEMES");
+
             compareLexemes("fi");//CHECKLEXEMES
         }
 
@@ -616,7 +624,13 @@ public class Parser {
 
     //loohahead
     private void compareLexemes(String data) {
-        Lexer.Token comparer = manager.getNextToken();
+//        System.out.println("COMAARING LEXEMES LLOOL");
+//        System.out.println("COMAARING LEXEMES LLOOL");
+        System.out.println("COMAARING LEXEMES LLOOL");
+        System.out.println("CurrentToken:   " + manager.getCurrentToken().toString());
+        Lexer.Token comparer = manager.getNextToken();//inceremetnts by 1 so currentIndex+1
+        System.out.println("nowCURRENTTOKEN:    "+manager.getCurrentToken().toString());
+//        manager.currentIndex--;
         if (!comparer.data.equals(data)) { //compare "fi" to whatever the string n data is
             printError(comparer, data);
         }
@@ -664,12 +678,22 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        System.out.println("R20 COMPARINGLEXEMES");
+        System.out.println("R20 COMPARINGLEXEMES");
+        System.out.println("R20 COMPARINGLEXEMES");
         compareLexemes("(");
         token = R25(manager.getNextToken());
         manager.addToNewArray(token);
+        System.out.println("R20 COMPARINGLEXEMES");
+        System.out.println("R20 COMPARINGLEXEMES");
+
         if (!token.data.equals(")")) {
             printError(token, ")");
         }
+        System.out.println("R20 COMPARINGLEXEMES");
+        System.out.println("R20 COMPARINGLEXEMES");
+
+
         compareLexemes(";");
     }
 
@@ -683,12 +707,19 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        System.out.println("R21 COMPARINGLEXEMES");
+        System.out.println("R21 COMPARINGLEXEMES");
+        System.out.println("R21 COMPARINGLEXEMES");
+
         compareLexemes("(");
         token = R13(manager.getNextToken());//IDS
         manager.addToNewArray(token);
         if (token.data.equals(")")) {
             printError(token, ")");
         }
+        System.out.println("R21 COMPARINGLEXEMES");
+        System.out.println("R21 COMPARINGLEXEMES");
+
         compareLexemes(";");
     }
 
@@ -702,6 +733,10 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        System.out.println("R22 COMPARINGLEXEMES");
+        System.out.println("R22 COMPARINGLEXEMES");
+        System.out.println("R22 COMPARINGLEXEMES");
+
         compareLexemes("(");
         token = R23(token); //CONDITION FUNCTION
         manager.addToNewArray(token);
@@ -854,6 +889,10 @@ public class Parser {
         } else if (token.data.equals("(")) {
             token = R25(manager.getNextToken());//EXPRESSION
             manager.addToNewArray(token);
+            System.out.println("INSIDE R28()");
+            System.out.println("INSIDE R28()");
+            System.out.println("INSIDE R28()");
+
             if (!token.data.equals(")")) {
                 printError(token, ")");//expected )
             } else {
@@ -885,12 +924,19 @@ public class Parser {
         token = manager.getNextToken();
         token.addToRules(s);
         manager.addToNewArray(token);
+        System.out.println("INSIDE R28EMPTY");
+        System.out.println("INSIDE R28EMPTY");
+        System.out.println("INSIDE R28EMPTY");
+
         if (!token.data.equals("(")) {
             return token;
         } else {
             token = R13(manager.getNextToken()); //IDENTIFIER
             manager.addToNewArray(token);
         }
+        System.out.println("INSIDE R28EMPTY V2");
+        System.out.println("INSIDE R28EMPTY V2");
+
         if (!token.data.equals(")")) {
             printError(token, ")");
         } else {

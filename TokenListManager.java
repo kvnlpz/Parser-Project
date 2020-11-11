@@ -1,5 +1,7 @@
 
 
+import java.awt.print.Printable;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class TokenListManager {
@@ -7,9 +9,10 @@ public class TokenListManager {
     public int currentIndex = 0;
     ArrayList<Lexer.Token> tokens;
     ArrayList<Lexer.Token> newTokens;
+    public PrintStream o;
 
-
-    public TokenListManager(ArrayList<Lexer.Token> tk) {
+    public TokenListManager(ArrayList<Lexer.Token> tk, PrintStream o) {
+        this.o = o;
 //        System.out.println("created tokenlistmanager");
 //        currentIndex = 0;
         tokens = new ArrayList<Lexer.Token>();
@@ -18,6 +21,7 @@ public class TokenListManager {
             tokens.add(tk.get(i));
         }
         System.out.println(tokens.toString());
+        System.setOut(o);
 
     }
 
@@ -52,24 +56,27 @@ public class TokenListManager {
 
     public Lexer.Token getNextToken() {
         System.out.println("---==CURRENTINDEX IS: " + currentIndex);
-        if (currentIndex >= tokens.size()) {
+        if (currentIndex >= tokens.size()+1) {
             isFinished = true;
         }
-        //if it hasnt finished AND the next index is still smaller than the size of the array
-        if (!isFinished && (!((currentIndex + 1) <= tokens.size()))) {
+        //!isFinished &&
+        if ((!((currentIndex + 1) <= tokens.size()))) {
 //            System.out.println("   ");
-//            System.out.println("CURRENTTOKEN: " + tokens.get(this.currentIndex).toString());
+            System.out.println("CURRENTTOKEN: " + tokens.get(this.currentIndex).toString());
 //            Lexer.Token returnToken = tokens.get(this.currentIndex);
             currentIndex++;
-//            System.out.println("GETNEXTTOKEN: " + tokens.get(this.currentIndex).toString());
+            System.out.println("GETNEXTTOKEN: " + tokens.get(this.currentIndex).toString());
 
             return tokens.get(this.currentIndex);
         } else {
+            currentIndex++;
+
             return tokens.get(this.currentIndex); //return it regardless? ok.
 //            Lexer.Token tk = new    Lexer.Token();
 //            return tk;
 //            return new Lexer.Token();
         }
+        //if it hasnt finished AND the next index is still smaller than the size of the array
     }
 
 

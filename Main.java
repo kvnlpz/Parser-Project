@@ -22,6 +22,8 @@ public class Main {
     static {
         try {
             o = new PrintStream(new File("A.txt"));
+            System.setOut(o);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -31,7 +33,6 @@ public class Main {
     public static PrintStream console = System.out;
 
     // Assign o to output stream
-//        System.setOut(o);
 
     public static void main(String[] args) throws IOException {
         StringBuilder fileContents = new StringBuilder();
@@ -62,6 +63,7 @@ public class Main {
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
 
 
+
         Parser parser = new Parser(tokens, o);
 
 
@@ -81,15 +83,15 @@ public class Main {
         System.out.println("|                            |");
         System.out.println("-----------------------------");
 
-        for (Lexer.Token token : tokens) {
-//            System.out.println(token);
-//            file.write(token.toString() + "\n");
-            System.out.println("  ");
-            System.out.println("  ");
-            System.out.println("Token: "+token.type + " Lexeme: " + token.data);
-            token.printRules();
-
-        }
+//        for (Lexer.Token token : tokens) {
+////            System.out.println(token);
+////            file.write(token.toString() + "\n");
+//            System.out.println("  ");
+//            System.out.println("  ");
+//            System.out.println("Token: "+token.type + " Lexeme: " + token.data);
+//            token.printRules();
+//
+//        }
 //        file.close();
     }
 

@@ -1,271 +1,228 @@
+SEPARATOR $$
+KEYWORD function
+IDENTIFIER doSomething
+SEPARATOR (
+SEPARATOR )
+SEPARATOR ;
+KEYWORD real
+IDENTIFIER test
+OPERATOR =
+NUMBER  12
+SEPARATOR ;
+KEYWORD function
+IDENTIFIER doThis
+SEPARATOR (
+IDENTIFIER number
+SEPARATOR )
+SEPARATOR {
+KEYWORD print
+SEPARATOR (
+IDENTIFIER number
+SEPARATOR )
+SEPARATOR ;
+SEPARATOR }
+KEYWORD int
+IDENTIFIER num1
+SEPARATOR ,
+KEYWORD int
+IDENTIFIER num2
+SEPARATOR ;
+IDENTIFIER num1
+OPERATOR =
+NUMBER  7
+SEPARATOR ;
+IDENTIFIER num2
+OPERATOR =
+NUMBER  8
+SEPARATOR ;
+KEYWORD if
+SEPARATOR (
+IDENTIFIER num1
+OPERATOR <
+OPERATOR =
+IDENTIFIER num2
+SEPARATOR )
+SEPARATOR {
+KEYWORD print
+SEPARATOR ;
+SEPARATOR }
+SEPARATOR $$
+Array Size: 49
+[SEPARATOR $$, KEYWORD function, IDENTIFIER doSomething, SEPARATOR (, SEPARATOR ), SEPARATOR ;, KEYWORD real, IDENTIFIER test, OPERATOR =, NUMBER  12, SEPARATOR ;, KEYWORD function, IDENTIFIER doThis, SEPARATOR (, IDENTIFIER number, SEPARATOR ), SEPARATOR {, KEYWORD print, SEPARATOR (, IDENTIFIER number, SEPARATOR ), SEPARATOR ;, SEPARATOR }, KEYWORD int, IDENTIFIER num1, SEPARATOR ,, KEYWORD int, IDENTIFIER num2, SEPARATOR ;, IDENTIFIER num1, OPERATOR =, NUMBER  7, SEPARATOR ;, IDENTIFIER num2, OPERATOR =, NUMBER  8, SEPARATOR ;, KEYWORD if, SEPARATOR (, IDENTIFIER num1, OPERATOR <, OPERATOR =, IDENTIFIER num2, SEPARATOR ), SEPARATOR {, KEYWORD print, SEPARATOR ;, SEPARATOR }, SEPARATOR $$]
+Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
+Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 ---==CURRENTINDEX IS: 0
----==CURRENTINDEX IS: 0
-Error at line number 1: expected { or OR IDENTIFIER OR KEYWORD but got $$
----==CURRENTINDEX IS: 0
---==Tokens==--
-Token: SEPARATOR
- Lexeme: $$
---=RULES=--
---==END=--
-  
-  
------------------------------
-|                            |
-|                            |
-|                            |
-|                            |
-|                            |
-|     ----====lexer====----  |
-|     ----====lexer====----  |
-|     ----====lexer====----  |
-|                            |
-|                            |
-|                            |
-|                            |
-|                            |
------------------------------
-  
-  
-Token: SEPARATOR Lexeme: $$
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: function
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: doSomething
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: (
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: )
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: real
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: test
---=RULES=--
---==END=--
-  
-  
-Token: OPERATOR Lexeme: =
---=RULES=--
---==END=--
-  
-  
-Token: NUMBER Lexeme:  12
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: function
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: doThis
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: (
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: number
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: )
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: {
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: print
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: (
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: number
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: )
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: }
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: int
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num1
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ,
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: int
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num2
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num1
---=RULES=--
---==END=--
-  
-  
-Token: OPERATOR Lexeme: =
---=RULES=--
---==END=--
-  
-  
-Token: NUMBER Lexeme:  7
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num2
---=RULES=--
---==END=--
-  
-  
-Token: OPERATOR Lexeme: =
---=RULES=--
---==END=--
-  
-  
-Token: NUMBER Lexeme:  8
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: if
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: (
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num1
---=RULES=--
---==END=--
-  
-  
-Token: OPERATOR Lexeme: <
---=RULES=--
---==END=--
-  
-  
-Token: OPERATOR Lexeme: =
---=RULES=--
---==END=--
-  
-  
-Token: IDENTIFIER Lexeme: num2
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: )
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: {
---=RULES=--
---==END=--
-  
-  
-Token: KEYWORD Lexeme: print
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: }
---=RULES=--
---==END=--
-  
-  
-Token: SEPARATOR Lexeme: $$
---=RULES=--
---==END=--
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 1
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 2
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 3
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+---==CURRENTINDEX IS: 4
+<Body>  ::=  {  < Statement List>  }
+Error at line number 7: expected { but got ;
+---==CURRENTINDEX IS: 5
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+Error at line number 8: expected { or OR IDENTIFIER OR KEYWORD but got real
+---==CURRENTINDEX IS: 6
+<Statement List> ::= <Statement List>  |  <Empty>
+<Function Definitions>' ::= <Function Definitions> | <Empty>
+---==CURRENTINDEX IS: 7
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 8
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+Error at line number 13: expected identifier but got  12
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 9
+Error at line number 14: expected Missing left parenthesis '(' but got ;
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 10
+Error at line number 15: expected Missing right parenthesis ')' but got function
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+---==CURRENTINDEX IS: 11
+<Body>  ::=  {  < Statement List>  }
+Error at line number 17: expected { but got doThis
+---==CURRENTINDEX IS: 12
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+Error at line number 18: expected { or OR IDENTIFIER OR KEYWORD but got (
+---==CURRENTINDEX IS: 13
+<Statement List> ::= <Statement List>  |  <Empty>
+<Function Definitions>' ::= <Function Definitions> | <Empty>
+---==CURRENTINDEX IS: 14
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 15
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+Error at line number 21: expected identifier but got {
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 16
+Error at line number 23: expected Missing left parenthesis '(' but got print
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 17
+Error at line number 24: expected Missing right parenthesis ')' but got (
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+---==CURRENTINDEX IS: 18
+<Body>  ::=  {  < Statement List>  }
+Error at line number 25: expected { but got number
+---==CURRENTINDEX IS: 19
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+Error at line number 26: expected { or OR IDENTIFIER OR KEYWORD but got )
+---==CURRENTINDEX IS: 20
+<Statement List> ::= <Statement List>  |  <Empty>
+<Function Definitions>' ::= <Function Definitions> | <Empty>
+---==CURRENTINDEX IS: 21
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 22
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+Error at line number 29: expected identifier but got int
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 23
+Error at line number 31: expected Missing left parenthesis '(' but got num1
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 24
+Error at line number 32: expected Missing right parenthesis ')' but got ,
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+---==CURRENTINDEX IS: 25
+<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
+<Declaration> ::=   <Qualifier > <IDs> 
+Qualifier> ::= int     |    boolean    |  real 
+---==CURRENTINDEX IS: 26
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 27
+Error at line number 37: expected ; but got ;
+---==CURRENTINDEX IS: 28
+<Declaration List> ::= <Declaration List>  |  <Empty>
+<Body>  ::=  {  < Statement List>  }
+Error at line number 38: expected { but got num1
+---==CURRENTINDEX IS: 29
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+Error at line number 40: expected { or OR IDENTIFIER OR KEYWORD but got =
+---==CURRENTINDEX IS: 30
+<Statement List> ::= <Statement List>  |  <Empty>
+<Function Definitions>' ::= <Function Definitions> | <Empty>
+---==CURRENTINDEX IS: 31
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 32
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 33
+Error at line number 45: expected Missing left parenthesis '(' but got =
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 34
+Error at line number 46: expected Missing right parenthesis ')' but got  8
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+---==CURRENTINDEX IS: 35
+<Body>  ::=  {  < Statement List>  }
+Error at line number 47: expected { but got ;
+---==CURRENTINDEX IS: 36
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<If> ::=     if  ( <Condition>  ) <Statement>   IF
+R18 COMPARINGLEXEMES
+R18 COMPARINGLEXEMES
+R18 COMPARINGLEXEMES
+COMAARING LEXEMES LLOOL
+CurrentToken:   KEYWORD if
+---==CURRENTINDEX IS: 37
+nowCURRENTTOKEN:    SEPARATOR (
+<Condition> ::=     <Expression>  <Relop>   <Expression>
+---==CURRENTINDEX IS: 38
+<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
+<Term>    ::=      <Term>  *  <Factor>
+<Factor> ::=      -  <Primary>    |    <Primary>
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::= ( <IDs> ) | <Empty>
+---==CURRENTINDEX IS: 39
+INSIDE R28EMPTY
+INSIDE R28EMPTY
+INSIDE R28EMPTY
+<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
+<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
+<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>        
+---==CURRENTINDEX IS: 40
+<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
+<Term>    ::=      <Term>  *  <Factor>
+<Factor> ::=      -  <Primary>    |    <Primary>
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+Error at line number 53: expected NUMBER but got =
+<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
+<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
+COMAARING LEXEMES LLOOL
+CurrentToken:   OPERATOR =
+---==CURRENTINDEX IS: 41
+nowCURRENTTOKEN:    IDENTIFIER num2
+Error at line number 55: expected ) but got num2
+---==CURRENTINDEX IS: 42
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+Error at line number 56: expected { or OR IDENTIFIER OR KEYWORD but got )
+---==CURRENTINDEX IS: 43
+if  ( <Condition>  ) <Statement>   else  <Statement>  fi 
+---==CURRENTINDEX IS: 44
+<Statement List> ::= <Statement List>  |  <Empty>
+<Function Definitions>' ::= <Function Definitions> | <Empty>
+---==CURRENTINDEX IS: 45
+Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+---==CURRENTINDEX IS: 46
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+Error at line number 61: expected identifier but got }
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 47
+Error at line number 62: expected Missing left parenthesis '(' but got $$
+Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+---==CURRENTINDEX IS: 48
