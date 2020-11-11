@@ -1,8 +1,8 @@
 $$
-function doSomething
-Real bro;
+function doSomething();
+real test = 12;
 
-function doThis[number]
+function doThis(number)
 {
 	print(number);
 }

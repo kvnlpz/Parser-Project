@@ -37,7 +37,9 @@ public class Main {
         StringBuilder fileContents = new StringBuilder();
 
         try {
-            File file = new File("input.txt");
+//            File file = new File("input.txt");
+            File file = new File("inputTwo.txt");
+//            File file = new File("inputThree.txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -52,11 +54,13 @@ public class Main {
         }
 //        String input = "11 + 22 - 33";
         String input = String.valueOf(fileContents);
+        input.replaceAll("\\s", "");
         Lexer lex = new Lexer(input);
 
 //        FileWriter file = new FileWriter("output.txt");
         // Create tokens and print them
         ArrayList<Lexer.Token> tokens = Lexer.lexFunc(input);
+
 
         Parser parser = new Parser(tokens, o);
 

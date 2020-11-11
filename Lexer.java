@@ -47,17 +47,28 @@ public class    Lexer {
                 tokens.add(new Token(TokenType.OPERATOR, matcher.group(TokenType.OPERATOR.name()), line));
             }
         }
+        for(Token t : tokens){
+            System.out.println(t.toString());
+        }
+        System.out.println("Array Size: "+tokens.size());
     }
 
 
     public enum TokenType {
         // The types of tokens we can have
-        NUMBER("[0-9]*\\.?[0-9]"),
-        OPERATOR("[*|/|+|-]"),
+//        NUMBER("[0-9]*\\.?[0-9]"),
+//        NUMBER("[0-9]*\\.?[0-9]+[0-9]+"),
+        NUMBER("\\s[+-]?([0-9]*[.])?[0-9]+"),
+//        OPERATOR("[*|/|+|-]"),
+        OPERATOR("[*|/|+|-|=|>|<]"),
         WHITESPACE("[ \t\f\r\n]+"),
-        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function)(?![a-zA-Z0-9])"),
-        IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
-        SEPARATOR("[\\$]{2,2}|[^a-zA-Z\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
+//        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float)(?![a-zA-Z0-9])"),
+        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float)(?![a-zA-Z0-9])"),
+//        IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
+        IDENTIFIER("\\b(?!(if|while|int|float|return|get|for|function|print)\\b)\\w+"),
+//        SEPARATOR("[\\$]{2,2}|[^a-zA-Z\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:] //oroginal
+//        SEPARATOR("\\b(?!(\\\\d+)\\b)"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
+        SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
         //[\$]{2,2}|[^a-zA-Z\\ds:]
 
         public final String pattern;
@@ -80,13 +91,26 @@ public class    Lexer {
             PRules = new ArrayList<String>();
         }
 
+        public Token() {
+            this.type = TokenType.SEPARATOR;
+            this.data = "ENDDDD";
+            this.lineNumber = 00;
+            PRules = new ArrayList<String>();
+        }
+
 
         public void addToRules(String s){
-            PRules.add(s);
+            if(!PRules.isEmpty()){
+                PRules.add(s);
+            }
 //            System.out.println(PRules);
 //            if(!PRules.contains(s)){
 //                PRules.add(s);
 //            }
+        }
+
+        public ArrayList<String> getPRules(){
+            return this.PRules;
         }
 
         @Override
@@ -101,11 +125,9 @@ public class    Lexer {
                     System.out.println(s);
                 }
                 System.out.println("--==END=--");
-
             }
-
-
         }
+
     }
 
 

@@ -1,43 +1,15 @@
-[SEPARATOR $$, KEYWORD int, IDENTIFIER i, SEPARATOR ,, IDENTIFIER max, SEPARATOR ,, IDENTIFIER sum, SEPARATOR ;, IDENTIFIER sum, SEPARATOR =, NUMBER 0, SEPARATOR ;, IDENTIFIER i, SEPARATOR =, NUMBER 1, SEPARATOR ;, KEYWORD get, SEPARATOR (, IDENTIFIER max, SEPARATOR ), SEPARATOR ;, KEYWORD if, SEPARATOR (, IDENTIFIER i, SEPARATOR <, IDENTIFIER max, SEPARATOR ), SEPARATOR {, IDENTIFIER sum, SEPARATOR =, IDENTIFIER sum, OPERATOR +, IDENTIFIER i, SEPARATOR ;, IDENTIFIER i, SEPARATOR =, IDENTIFIER i, OPERATOR +, NUMBER 1, SEPARATOR ;, SEPARATOR }, IDENTIFIER else, SEPARATOR {, IDENTIFIER sum, SEPARATOR =, NUMBER 8, SEPARATOR ;, IDENTIFIER sum, SEPARATOR =, NUMBER 10, SEPARATOR ;, SEPARATOR }, KEYWORD if, IDENTIFIER put, SEPARATOR (, IDENTIFIER sum, OPERATOR +, IDENTIFIER max, SEPARATOR ), SEPARATOR ;, SEPARATOR $$]
-Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
-Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
-<Opt Declaration List> ::= <Declaration List> | <Empty>
-<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
-<Declaration> ::=   <Qualifier > <IDs>
-Qualifier> ::= int     |    boolean    |  real
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
-<Declaration List> ::= <Declaration List>  |  <Empty>
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
-===============================
-===============================
-===============================
-===============================
-TESTING TESTING TESTING TESTING
+---==CURRENTINDEX IS: 0
+Error at line number 1: expected $$ but got $$
+---==CURRENTINDEX IS: 0
+Error at line number 1: expected { or OR IDENTIFIER OR KEYWORD but got $$
+---==CURRENTINDEX IS: 0
+--==Tokens==--
+Token: SEPARATOR
+ Lexeme: $$
 --=RULES=--
-<Declaration List> ::= <Declaration List>  |  <Empty>
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
-<Assign> ::=     <Identifier> = <Expression> ;
 --==END=--
-TESTING TESTING TESTING TESTING
-===============================
-===============================
-===============================
-===============================
-<Assign> ::=     <Identifier> = <Expression> ;
-<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
-<Term>    ::=      <Term>  *  <Factor>
-<Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
-<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
-<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
-<Statement List> ::= <Statement List>  |  <Empty>
+
+
 -----------------------------
 |                            |
 |                            |
@@ -57,25 +29,126 @@ TESTING TESTING TESTING TESTING
 
 Token: SEPARATOR Lexeme: $$
 --=RULES=--
-Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
-Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
-Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
-<Opt Declaration List> ::= <Declaration List> | <Empty>
+--==END=--
+
+
+Token: KEYWORD Lexeme: function
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: doSomething
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
+Token: KEYWORD Lexeme: real
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: test
+--=RULES=--
+--==END=--
+
+
+Token: OPERATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
+Token: NUMBER Lexeme:  12
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
+Token: KEYWORD Lexeme: function
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: doThis
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: number
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: {
+--=RULES=--
+--==END=--
+
+
+Token: KEYWORD Lexeme: print
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: (
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: number
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: )
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
+Token: SEPARATOR Lexeme: }
+--=RULES=--
 --==END=--
 
 
 Token: KEYWORD Lexeme: int
 --=RULES=--
-<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
-<Declaration> ::=   <Qualifier > <IDs>
-Qualifier> ::= int     |    boolean    |  real
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: i
+Token: IDENTIFIER Lexeme: num1
 --=RULES=--
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END=--
 
 
@@ -84,72 +157,12 @@ Token: SEPARATOR Lexeme: ,
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: max
---=RULES=--
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
---==END=--
-
-
-Token: SEPARATOR Lexeme: ,
+Token: KEYWORD Lexeme: int
 --=RULES=--
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
-<Declaration List> ::= <Declaration List>  |  <Empty>
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
-<Assign> ::=     <Identifier> = <Expression> ;
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: NUMBER Lexeme: 0
---=RULES=--
-<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
-<Term>    ::=      <Term>  *  <Factor>
-<Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
---=RULES=--
-<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
-<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
---==END=--
-
-
-Token: IDENTIFIER Lexeme: i
---=RULES=--
-<Statement List> ::= <Statement List>  |  <Empty>
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: NUMBER Lexeme: 1
+Token: IDENTIFIER Lexeme: num2
 --=RULES=--
 --==END=--
 
@@ -159,22 +172,37 @@ Token: SEPARATOR Lexeme: ;
 --==END=--
 
 
-Token: KEYWORD Lexeme: get
+Token: IDENTIFIER Lexeme: num1
 --=RULES=--
 --==END=--
 
 
-Token: SEPARATOR Lexeme: (
+Token: OPERATOR Lexeme: =
 --=RULES=--
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: max
+Token: NUMBER Lexeme:  7
 --=RULES=--
 --==END=--
 
 
-Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: ;
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: num2
+--=RULES=--
+--==END=--
+
+
+Token: OPERATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
+Token: NUMBER Lexeme:  8
 --=RULES=--
 --==END=--
 
@@ -194,17 +222,22 @@ Token: SEPARATOR Lexeme: (
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: i
+Token: IDENTIFIER Lexeme: num1
 --=RULES=--
 --==END=--
 
 
-Token: SEPARATOR Lexeme: <
+Token: OPERATOR Lexeme: <
 --=RULES=--
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: max
+Token: OPERATOR Lexeme: =
+--=RULES=--
+--==END=--
+
+
+Token: IDENTIFIER Lexeme: num2
 --=RULES=--
 --==END=--
 
@@ -219,57 +252,7 @@ Token: SEPARATOR Lexeme: {
 --==END=--
 
 
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
---==END=--
-
-
-Token: OPERATOR Lexeme: +
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: i
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: i
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: i
---=RULES=--
---==END=--
-
-
-Token: OPERATOR Lexeme: +
---=RULES=--
---==END=--
-
-
-Token: NUMBER Lexeme: 1
+Token: KEYWORD Lexeme: print
 --=RULES=--
 --==END=--
 
@@ -280,101 +263,6 @@ Token: SEPARATOR Lexeme: ;
 
 
 Token: SEPARATOR Lexeme: }
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: else
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: {
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: NUMBER Lexeme: 8
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: =
---=RULES=--
---==END=--
-
-
-Token: NUMBER Lexeme: 10
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: }
---=RULES=--
---==END=--
-
-
-Token: KEYWORD Lexeme: if
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: put
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: (
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: sum
---=RULES=--
---==END=--
-
-
-Token: OPERATOR Lexeme: +
---=RULES=--
---==END=--
-
-
-Token: IDENTIFIER Lexeme: max
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: )
---=RULES=--
---==END=--
-
-
-Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
 
