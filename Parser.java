@@ -160,16 +160,16 @@ public class Parser {
         token = R2(token); //OFD
         manager.addToNewArray(token);
         if (token.data.equals("$$")) {
-            printError(token, "$$");
+            token = R10(token); //ODL
+           manager.addToNewArray(token);
+            R14(token); // STATEMENT LIST
         }
-        token = R10(token); //ODL
-        manager.addToNewArray(token);
-        R14(token); // STATEMENT LIST
+
 //
 
 
             // }
-            if (!token.data.equals("$$")) {
+            else {
 //                System.out.println("THIS IS WHERE THE ERROR WOULD HAVE BEEN");
 //                System.out.println("this is the token: " + token.toString());
                 printError(token, "$$");
@@ -188,7 +188,7 @@ public class Parser {
             System.out.println(s);
         }
         token = manager.getNextToken();
-//        token.addToRules(s);
+        token.addToRules(s);
         manager.addToNewArray(token);
 
         //if (!token.data.equals("function"

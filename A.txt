@@ -1,5 +1,4 @@
 ---==CURRENTINDEX IS: 0
-Error at line number 1: expected $$ but got $$
 ---==CURRENTINDEX IS: 0
 Error at line number 1: expected { or OR IDENTIFIER OR KEYWORD but got $$
 ---==CURRENTINDEX IS: 0
@@ -8,8 +7,8 @@ Token: SEPARATOR
  Lexeme: $$
 --=RULES=--
 --==END=--
-
-
+  
+  
 -----------------------------
 |                            |
 |                            |
@@ -25,248 +24,248 @@ Token: SEPARATOR
 |                            |
 |                            |
 -----------------------------
-
-
+  
+  
 Token: SEPARATOR Lexeme: $$
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: function
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: doSomething
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: (
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: )
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: real
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: test
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: OPERATOR Lexeme: =
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: NUMBER Lexeme:  12
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: function
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: doThis
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: (
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: number
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: )
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: {
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: print
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: (
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: number
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: )
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: }
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: int
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num1
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ,
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: int
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num2
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num1
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: OPERATOR Lexeme: =
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: NUMBER Lexeme:  7
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num2
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: OPERATOR Lexeme: =
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: NUMBER Lexeme:  8
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: if
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: (
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num1
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: OPERATOR Lexeme: <
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: OPERATOR Lexeme: =
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: IDENTIFIER Lexeme: num2
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: )
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: {
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: KEYWORD Lexeme: print
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: ;
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: }
 --=RULES=--
 --==END=--
-
-
+  
+  
 Token: SEPARATOR Lexeme: $$
 --=RULES=--
 --==END=--
