@@ -3,8 +3,8 @@ Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Stateme
 Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 <Opt Declaration List> ::= <Declaration List> | <Empty>
 <Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
-<Declaration> ::=   <Qualifier > <IDs> 
-Qualifier> ::= int     |    boolean    |  real 
+<Declaration> ::=   <Qualifier > <IDs>
+Qualifier> ::= int     |    boolean    |  real
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
@@ -13,39 +13,39 @@ Qualifier> ::= int     |    boolean    |  real
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 <Declaration List> ::= <Declaration List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Assign> ::=     <Identifier> = <Expression> ;
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Assign> ::=     <Identifier> = <Expression> ;
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Scan> ::=    get ( <IDs )
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <If> ::=     if  ( <Condition>  ) <Statement>   IF
 <Condition> ::=     <Expression>  <Relop>   <Expression>
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Primary> ::= ( <IDs> ) | <Empty>
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
@@ -54,46 +54,46 @@ TOKEN: OPERATOR <
 TOKEN: OPERATOR <
 TOKEN: OPERATOR <
 TOKEN: OPERATOR <
-<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>        
+<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 Error at line number 42: expected NUMBER but got )
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 Error at line number 43: expected ) but got {
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Assign> ::=     <Identifier> = <Expression> ;
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Primary> ::= ( <IDs> ) | <Empty>
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Primary> ::= ( <IDs> ) | <Empty>
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Assign> ::=     <Identifier> = <Expression> ;
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Primary> ::= ( <IDs> ) | <Empty>
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 <Statement List> ::= <Statement List>  |  <Empty>
@@ -107,18 +107,18 @@ Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 <Opt Declaration List> ::= <Declaration List> | <Empty>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: KEYWORD
  Lexeme: int
 --=RULES=--
 <Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
-<Declaration> ::=   <Qualifier > <IDs> 
-Qualifier> ::= int     |    boolean    |  real 
+<Declaration> ::=   <Qualifier > <IDs>
+Qualifier> ::= int     |    boolean    |  real
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: IDENTIFIER
  Lexeme: i
@@ -126,8 +126,8 @@ Token: IDENTIFIER
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: IDENTIFIER
  Lexeme: max
@@ -135,8 +135,8 @@ Token: IDENTIFIER
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: IDENTIFIER
  Lexeme: sum
@@ -144,15 +144,15 @@ Token: IDENTIFIER
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: SEPARATOR
  Lexeme: ;
 --=RULES=--
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: NUMBER
  Lexeme:  0
@@ -160,10 +160,10 @@ Token: NUMBER
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: NUMBER
  Lexeme:  1
@@ -171,40 +171,40 @@ Token: NUMBER
 <Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
 <Term>    ::=      <Term>  *  <Factor>
 <Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: KEYWORD
  Lexeme: get
 --=RULES=--
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <Scan> ::=    get ( <IDs )
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: SEPARATOR
  Lexeme: )
 --=RULES=--
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: KEYWORD
  Lexeme: if
 --=RULES=--
 <Statement List> ::= <Statement List>  |  <Empty>
 <Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
 <If> ::=     if  ( <Condition>  ) <Statement>   IF
 <Condition> ::=     <Expression>  <Relop>   <Expression>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: OPERATOR
  Lexeme: <
@@ -212,10 +212,10 @@ Token: OPERATOR
 <Primary> ::= ( <IDs> ) | <Empty>
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
-<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>        
+<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: OPERATOR
  Lexeme: +
@@ -224,8 +224,8 @@ Token: OPERATOR
 <Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
 <Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
 --==END==--
-  
-  
+
+
 --==Tokens==--
 Token: SEPARATOR
  Lexeme: }
