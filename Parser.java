@@ -545,7 +545,7 @@ public class Parser {
         }
 //        System.out.println("This is our token while in R13()->"+token.toString());
         if (!(token.type.equals(Lexer.TokenType.IDENTIFIER))) {
-            System.out.println("this is WHERE THE ERROR IS");
+//            System.out.println("this is WHERE THE ERROR IS");
             System.out.println("This is our token: "+token.toString());
             printError(token, "identifier");
 //            int away = -1;
@@ -614,7 +614,7 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        if (token.data.equals("{") || token.data.equals("identifier")
+        if (token.data.equals("{") || token.type.equals(Lexer.TokenType.IDENTIFIER)
                 || token.data.equals("if") || token.data.equals("return")
                 || token.data.equals("put") || token.data.equals("get") || token.data.equals("while")) {
             token = R14(token);
@@ -663,6 +663,7 @@ public class Parser {
             R21(token);
         } else if (token.data.equals("while")) {
             //while
+            System.out.println("WHIIILELELEE");
             R22(token);
         } else {
             printError(token, "{ or identifier or if or return or put or get or whileD");
@@ -904,7 +905,7 @@ public class Parser {
 //        System.out.println("R22 COMPARINGLEXEMES");
 //        System.out.println("R22 COMPARINGLEXEMES");
         System.out.println("R22 COMPARINGLEXEMES");
-
+        System.out.println("CURRENT TOKEN IS: "+ token.toString());
         compareLexemes("(");
         token = R23(token); //CONDITION FUNCTION
         manager.addToNewArray(token);

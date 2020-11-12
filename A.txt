@@ -71,7 +71,6 @@ TESTINGG
 KEYWORD int
 ---==CURRENTINDEX IS: 5
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR )
 Error at line number 10: expected identifier but got )
 the token -1 away from it is:
@@ -85,7 +84,6 @@ TESTINGG
 SEPARATOR {
 ---==CURRENTINDEX IS: 7
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: KEYWORD return
 Error at line number 13: expected identifier but got return
 the token -1 away from it is:
@@ -99,7 +97,6 @@ TESTINGG
 IDENTIFIER fahr
 ---==CURRENTINDEX IS: 9
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR ;
 Error at line number 16: expected identifier but got ;
 the token -1 away from it is:
@@ -113,7 +110,6 @@ TESTINGG
 SEPARATOR }
 ---==CURRENTINDEX IS: 11
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: KEYWORD int
 Error at line number 19: expected identifier but got int
 the token -1 away from it is:
@@ -127,7 +123,6 @@ TESTINGG
 IDENTIFIER low
 ---==CURRENTINDEX IS: 13
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR ,
 Error at line number 22: expected identifier but got ,
 the token -1 away from it is:
@@ -141,7 +136,6 @@ TESTINGG
 IDENTIFIER high
 ---==CURRENTINDEX IS: 15
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR ,
 Error at line number 25: expected identifier but got ,
 the token -1 away from it is:
@@ -155,7 +149,6 @@ TESTINGG
 IDENTIFIER step
 ---==CURRENTINDEX IS: 17
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR ;
 Error at line number 28: expected identifier but got ;
 the token -1 away from it is:
@@ -169,7 +162,6 @@ TESTINGG
 KEYWORD while
 ---==CURRENTINDEX IS: 19
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR (
 Error at line number 32: expected identifier but got (
 the token -1 away from it is:
@@ -183,7 +175,6 @@ TESTINGG
 IDENTIFIER low
 ---==CURRENTINDEX IS: 21
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: OPERATOR <=
 Error at line number 35: expected identifier but got <=
 the token -1 away from it is:
@@ -197,7 +188,6 @@ TESTINGG
 IDENTIFIER high
 ---==CURRENTINDEX IS: 23
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR )
 Error at line number 39: expected identifier but got )
 the token -1 away from it is:
@@ -211,7 +201,6 @@ TESTINGG
 SEPARATOR {
 ---==CURRENTINDEX IS: 25
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: KEYWORD put
 Error at line number 43: expected identifier but got put
 the token -1 away from it is:
@@ -234,7 +223,6 @@ TESTINGG
 SEPARATOR )
 ---==CURRENTINDEX IS: 29
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR ;
 Error at line number 48: expected identifier but got ;
 the token -1 away from it is:
@@ -248,7 +236,6 @@ TESTINGG
 KEYWORD put
 ---==CURRENTINDEX IS: 31
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR (
 Error at line number 52: expected identifier but got (
 the token -1 away from it is:
@@ -262,7 +249,6 @@ TESTINGG
 IDENTIFIER tamale
 ---==CURRENTINDEX IS: 33
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR )
 Error at line number 54: expected identifier but got )
 the token -1 away from it is:
@@ -303,7 +289,6 @@ TESTINGG
 SEPARATOR ;
 ---==CURRENTINDEX IS: 41
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
 This is our token: SEPARATOR }
 Error at line number 68: expected identifier but got }
 the token -1 away from it is:
