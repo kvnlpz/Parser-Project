@@ -74,6 +74,7 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
  */
 
 
+
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -109,7 +110,9 @@ public class Parser {
     public void R1() {
         String s = "Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$";
         System.out.println(s);
+//        manager.currentIndex = 0;
         Lexer.Token token = manager.getCurrentToken();
+//        System.out.println("TOKEN: " + token.toString());
         token = R2(token);
         if (!token.data.equals("$$")) {
             printError(token, "$$");
@@ -141,7 +144,7 @@ public class Parser {
         manager.addToNewArray(token);
         System.out.println(s);
 
-        token = manager.getNextToken();
+//        token = manager.getNextToken();
         token.addToRules(s);
         manager.addToNewArray(token);
 
@@ -347,13 +350,15 @@ public class Parser {
         String s = "<IDs> ::=     <Identifier>    | <Identifier>, <Empty>";
         token.addToRules(s);
         manager.addToNewArray(token);
-
         System.out.println(s);
+        System.out.println("R13EMPTY() BEFORE NEXT->" + token.toString());
         token = manager.getNextToken();
+        System.out.println("R13EMPTY() AFTER NEXT->" + token.toString());
         if (token.data.equals(",")) {
             return R13(manager.getNextToken());
         } else {
-            return manager.getNextToken();
+            return token;
+//            return manager.getNextToken();
         }
     }
 
@@ -429,9 +434,10 @@ public class Parser {
         token.addToRules(s);
         manager.addToNewArray(token);
         System.out.println(s);
-        token = manager.getNextToken();
+//        token = manager.getNextToken();
         token.addToRules(s);
         manager.addToNewArray(token);
+        token = manager.getNextToken();
         if (!token.data.equals("=")) {
             printError(token, "=");
         }
@@ -449,33 +455,42 @@ public class Parser {
 
         System.out.println(s);
 
-        compareLexemes("(");
-        R23(token);
-        compareLexemes(")");
-        R15(manager.getNextToken());
-        R18FI(manager.getNextToken());
+        //compareLexemes("(");
+        if(compareLexemes("(")){
+            R23(token);
+        }
+        //R23(token);
+        //compareLexemes(")");
+        if(compareLexemes(")")){
+            R15(manager.getNextToken());
+            R18FI(manager.getNextToken());
+        }
+        //R15(manager.getNextToken());
+        //R18FI(manager.getNextToken());
     }
 
     public void R18FI(Lexer.Token token) {
         String s = "if  ( <Condition>  ) <Statement>   else  <Statement>  fi ";
-        token.addToRules(s);
-        manager.addToNewArray(token);
+        //token.addToRules(s);
+        //manager.addToNewArray(token);
 
         System.out.println(s);
         if (token.data.equals("fi")) {
+//            R18FI(manager.getNextToken());
         } else if (token.data.equals("else")) {
             R15(manager.getNextToken());
-
             compareLexemes("fi");
         }
 
     }
 
-    private void compareLexemes(String data) {
+    private boolean compareLexemes(String data) {
         Lexer.Token comparer = manager.getNextToken();
         if (!comparer.data.equals(data)) {
             printError(comparer, data);
+            return false;
         }
+        return true;
     }
 
     public void R19(Lexer.Token token) {
@@ -512,14 +527,21 @@ public class Parser {
         manager.addToNewArray(token);
 
         System.out.println(s);
-        compareLexemes("(");
-        token = R25(manager.getNextToken());
-        manager.addToNewArray(token);
+        if(compareLexemes("(")){
+            token = R25(manager.getNextToken());
+            manager.addToNewArray(token);
+        }
+        //token = R25(manager.getNextToken());
+        //manager.addToNewArray(token);
 
         if (!token.data.equals(")")) {
             printError(token, ")");
         }
-        compareLexemes(";");
+        //compareLexemes(";");
+        if(compareLexemes(";")){
+            //?
+            manager.addToNewArray(token);
+        }
     }
 
     public void R21(Lexer.Token token) {
@@ -529,15 +551,25 @@ public class Parser {
 
         System.out.println(s);
 
-        compareLexemes("(");
-
-        token = R13(manager.getNextToken());
-        manager.addToNewArray(token);
+        //compareLexemes("(");
+        if(compareLexemes("(")){
+            token = R13(manager.getNextToken());
+            manager.addToNewArray(token);
+        }
+        //token = R13(manager.getNextToken());
+        //manager.addToNewArray(token);
         if (!token.data.equals(")")) {
             printError(token, ")");
         }
 
-        compareLexemes(";");
+        //if the nextToken and ";" are the same
+        if(!compareLexemes(";")){
+            System.out.println("compareLexemes was false");
+            System.out.println("compareLexemes was false");
+            System.out.println("compareLexemes was false");
+
+            return;
+        }
     }
 
     public void R22(Lexer.Token token) {
@@ -546,9 +578,13 @@ public class Parser {
         manager.addToNewArray(token);
 
         System.out.println(s);
-        compareLexemes("(");
-        token = R23(token);
-        manager.addToNewArray(token);
+        //compareLexemes("(");
+        if(compareLexemes("(")){
+            token = R23(token);
+            manager.addToNewArray(token);
+        }
+        //token = R23(token);
+        //manager.addToNewArray(token);
         if (!token.data.equals(")")) {
             printError(token, ")");
 
@@ -683,6 +719,7 @@ public class Parser {
             if (!token.data.equals(")")) {
                 printError(token, ")");
             } else {
+//                return token;
                 return manager.getNextToken();
             }
         } else if (token.data.equals("int")
@@ -690,7 +727,9 @@ public class Parser {
                 || token.data.equals("true")
                 || token.data.equals("false")
                 || token.type == Lexer.TokenType.NUMBER) {
+            System.out.println("R28 BEFORE CALL -> " + token.toString());
             token = manager.getNextToken();
+            System.out.println("R28 AFTER CALL -> " + token.toString());
             token.addToRules(s);
             manager.addToNewArray(token);
         } else {
