@@ -28,8 +28,8 @@ public class Main {
 
         try {
             File file = new File("input.txt");
-//            File fileTwo = new File("inputTwo.txt");
-//            File fileThree = new File("inputThree.txt");
+//            File file = new File("inputTwo.txt");
+//            File file = new File("inputThree.txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();

@@ -350,9 +350,7 @@ public class Parser {
         token.addToRules(s);
         manager.addToNewArray(token);
         System.out.println(s);
-        System.out.println("R13EMPTY() BEFORE NEXT->" + token.toString());
         token = manager.getNextToken();
-        System.out.println("R13EMPTY() AFTER NEXT->" + token.toString());
         if (token.data.equals(",")) {
             return R13(manager.getNextToken());
         } else {
@@ -563,10 +561,6 @@ public class Parser {
 
         //if the nextToken and ";" are the same
         if(!compareLexemes(";")){
-            System.out.println("compareLexemes was false");
-            System.out.println("compareLexemes was false");
-            System.out.println("compareLexemes was false");
-
             return;
         }
     }
@@ -599,9 +593,6 @@ public class Parser {
         System.out.println(s);
         token = R25(manager.getNextToken());
         manager.addToNewArray(token);
-        System.out.println("R23 CALLING RELOP: "+ token.toString());
-        System.out.println("R23 CALLING RELOP: "+ token.toString());
-        System.out.println("R23 CALLING RELOP: "+ token.toString());
         token = R24(token);
         return R25(manager.getNextToken());
     }
@@ -622,13 +613,6 @@ public class Parser {
                 token.data.equals("<") ||
                 token.data.equals(">=") ||
                 token.data.equals("<=")){
-
-//            manager.tempNextToken(-2);
-//            manager.tempNextToken(-1);
-//            manager.tempNextToken(0);
-//            manager.tempNextToken(1);
-//            manager.tempNextToken(2);
-            //token = manager.getNextToken();
             token.addToRules(s);
             manager.addToNewArray(token);
             token = manager.getNextToken();
@@ -726,9 +710,7 @@ public class Parser {
                 || token.data.equals("true")
                 || token.data.equals("false")
                 || token.type == Lexer.TokenType.NUMBER) {
-            System.out.println("R28 BEFORE CALL -> " + token.toString());
             token = manager.getNextToken();
-            System.out.println("R28 AFTER CALL -> " + token.toString());
             token.addToRules(s);
             manager.addToNewArray(token);
         } else {

@@ -46,13 +46,13 @@ public class Lexer {
                 tokens.add(new Token(TokenType.OPERATOR, matcher.group(TokenType.OPERATOR.name()), line));
             }
         }
-        int number = 0;
-        for (Token t : tokens) {
-
-            System.out.println("Index: " + number + " " + t.toString());
-            number++;
-        }
-        System.out.println("Array Size: " + tokens.size());
+//        int number = 0;
+//        for (Token t : tokens) {
+//
+//            System.out.println("Index: " + number + " " + t.toString());
+//            number++;
+//        }
+//        System.out.println("Array Size: " + tokens.size());
     }
 
 
