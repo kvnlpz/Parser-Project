@@ -188,7 +188,6 @@ public class Parser {
         R9(token);
     }
 
-
     public Lexer.Token R4EMPTY(Lexer.Token token) {
         String s = "<Function Definitions>' ::= <Function Definitions> | <Empty>";
         token.addToRules(s);
