@@ -1,303 +1,181 @@
 Index: 0 SEPARATOR $$
-Index: 1 KEYWORD function
-Index: 2 IDENTIFIER convertx
-Index: 3 SEPARATOR (
-Index: 4 IDENTIFIER fahr
-Index: 5 KEYWORD int
-Index: 6 SEPARATOR )
-Index: 7 SEPARATOR {
-Index: 8 KEYWORD return
-Index: 9 IDENTIFIER fahr
-Index: 10 SEPARATOR ;
-Index: 11 SEPARATOR }
-Index: 12 KEYWORD int
-Index: 13 IDENTIFIER low
-Index: 14 SEPARATOR ,
-Index: 15 IDENTIFIER high
-Index: 16 SEPARATOR ,
-Index: 17 IDENTIFIER step
-Index: 18 SEPARATOR ;
-Index: 19 KEYWORD while
-Index: 20 SEPARATOR (
-Index: 21 IDENTIFIER low
-Index: 22 OPERATOR <=
-Index: 23 IDENTIFIER high
-Index: 24 SEPARATOR )
-Index: 25 SEPARATOR {
-Index: 26 KEYWORD put
-Index: 27 SEPARATOR (
-Index: 28 IDENTIFIER low
-Index: 29 SEPARATOR )
-Index: 30 SEPARATOR ;
-Index: 31 KEYWORD put
-Index: 32 SEPARATOR (
-Index: 33 IDENTIFIER tamale
-Index: 34 SEPARATOR )
-Index: 35 SEPARATOR ;
-Index: 36 IDENTIFIER low
-Index: 37 OPERATOR =
-Index: 38 IDENTIFIER low
-Index: 39 OPERATOR +
-Index: 40 IDENTIFIER step
-Index: 41 SEPARATOR ;
-Index: 42 SEPARATOR }
-Index: 43 SEPARATOR $$
-Array Size: 44
-[SEPARATOR $$, KEYWORD function, IDENTIFIER convertx, SEPARATOR (, IDENTIFIER fahr, KEYWORD int, SEPARATOR ), SEPARATOR {, KEYWORD return, IDENTIFIER fahr, SEPARATOR ;, SEPARATOR }, KEYWORD int, IDENTIFIER low, SEPARATOR ,, IDENTIFIER high, SEPARATOR ,, IDENTIFIER step, SEPARATOR ;, KEYWORD while, SEPARATOR (, IDENTIFIER low, OPERATOR <=, IDENTIFIER high, SEPARATOR ), SEPARATOR {, KEYWORD put, SEPARATOR (, IDENTIFIER low, SEPARATOR ), SEPARATOR ;, KEYWORD put, SEPARATOR (, IDENTIFIER tamale, SEPARATOR ), SEPARATOR ;, IDENTIFIER low, OPERATOR =, IDENTIFIER low, OPERATOR +, IDENTIFIER step, SEPARATOR ;, SEPARATOR }, SEPARATOR $$]
+Index: 1 KEYWORD int
+Index: 2 IDENTIFIER i
+Index: 3 SEPARATOR ,
+Index: 4 IDENTIFIER max
+Index: 5 SEPARATOR ,
+Index: 6 IDENTIFIER sum
+Index: 7 SEPARATOR ;
+Index: 8 IDENTIFIER sum
+Index: 9 OPERATOR =
+Index: 10 NUMBER  0
+Index: 11 SEPARATOR ;
+Index: 12 IDENTIFIER i
+Index: 13 OPERATOR =
+Index: 14 NUMBER  1
+Index: 15 SEPARATOR ;
+Index: 16 KEYWORD get
+Index: 17 SEPARATOR (
+Index: 18 IDENTIFIER max
+Index: 19 SEPARATOR )
+Index: 20 SEPARATOR ;
+Index: 21 KEYWORD if
+Index: 22 SEPARATOR (
+Index: 23 IDENTIFIER i
+Index: 24 OPERATOR <
+Index: 25 IDENTIFIER max
+Index: 26 SEPARATOR )
+Index: 27 SEPARATOR {
+Index: 28 IDENTIFIER sum
+Index: 29 OPERATOR =
+Index: 30 IDENTIFIER sum
+Index: 31 OPERATOR +
+Index: 32 IDENTIFIER i
+Index: 33 SEPARATOR ;
+Index: 34 IDENTIFIER i
+Index: 35 OPERATOR =
+Index: 36 IDENTIFIER i
+Index: 37 OPERATOR +
+Index: 38 NUMBER  1
+Index: 39 SEPARATOR ;
+Index: 40 SEPARATOR }
+Index: 41 IDENTIFIER else
+Index: 42 SEPARATOR {
+Index: 43 IDENTIFIER sum
+Index: 44 OPERATOR =
+Index: 45 NUMBER  8
+Index: 46 SEPARATOR ;
+Index: 47 IDENTIFIER sum
+Index: 48 OPERATOR =
+Index: 49 IDENTIFIER 10
+Index: 50 SEPARATOR ;
+Index: 51 SEPARATOR }
+Index: 52 KEYWORD if
+Index: 53 KEYWORD put
+Index: 54 SEPARATOR (
+Index: 55 IDENTIFIER sum
+Index: 56 OPERATOR +
+Index: 57 IDENTIFIER max
+Index: 58 SEPARATOR )
+Index: 59 SEPARATOR ;
+Index: 60 SEPARATOR $$
+Array Size: 61
+[SEPARATOR $$, KEYWORD int, IDENTIFIER i, SEPARATOR ,, IDENTIFIER max, SEPARATOR ,, IDENTIFIER sum, SEPARATOR ;, IDENTIFIER sum, OPERATOR =, NUMBER  0, SEPARATOR ;, IDENTIFIER i, OPERATOR =, NUMBER  1, SEPARATOR ;, KEYWORD get, SEPARATOR (, IDENTIFIER max, SEPARATOR ), SEPARATOR ;, KEYWORD if, SEPARATOR (, IDENTIFIER i, OPERATOR <, IDENTIFIER max, SEPARATOR ), SEPARATOR {, IDENTIFIER sum, OPERATOR =, IDENTIFIER sum, OPERATOR +, IDENTIFIER i, SEPARATOR ;, IDENTIFIER i, OPERATOR =, IDENTIFIER i, OPERATOR +, NUMBER  1, SEPARATOR ;, SEPARATOR }, IDENTIFIER else, SEPARATOR {, IDENTIFIER sum, OPERATOR =, NUMBER  8, SEPARATOR ;, IDENTIFIER sum, OPERATOR =, IDENTIFIER 10, SEPARATOR ;, SEPARATOR }, KEYWORD if, KEYWORD put, SEPARATOR (, IDENTIFIER sum, OPERATOR +, IDENTIFIER max, SEPARATOR ), SEPARATOR ;, SEPARATOR $$]
 Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
-current token is: SEPARATOR $$
 Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
----==CURRENTINDEX IS: 0
-<Function Definitions>  ::= <Function> | <Function> <Function Definitions>
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
----==CURRENTINDEX IS: 1
-setting and ggetting r13 from r4
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 2
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR (
----==CURRENTINDEX IS: 3
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 4
-TESTINGG
-TESTINGG
-TESTINGG
-KEYWORD int
----==CURRENTINDEX IS: 5
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR )
-Error at line number 10: expected identifier but got )
-the token -1 away from it is:
-KEYWORD int
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 6
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR {
----==CURRENTINDEX IS: 7
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: KEYWORD return
-Error at line number 13: expected identifier but got return
-the token -1 away from it is:
-SEPARATOR {
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 8
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER fahr
----==CURRENTINDEX IS: 9
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR ;
-Error at line number 16: expected identifier but got ;
-the token -1 away from it is:
-IDENTIFIER fahr
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 10
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR }
----==CURRENTINDEX IS: 11
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: KEYWORD int
-Error at line number 19: expected identifier but got int
-the token -1 away from it is:
-SEPARATOR }
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 12
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER low
----==CURRENTINDEX IS: 13
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR ,
-Error at line number 22: expected identifier but got ,
-the token -1 away from it is:
-IDENTIFIER low
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 14
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER high
----==CURRENTINDEX IS: 15
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR ,
-Error at line number 25: expected identifier but got ,
-the token -1 away from it is:
-IDENTIFIER high
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 16
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER step
----==CURRENTINDEX IS: 17
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR ;
-Error at line number 28: expected identifier but got ;
-the token -1 away from it is:
-IDENTIFIER step
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 18
-TESTINGG
-TESTINGG
-TESTINGG
-KEYWORD while
----==CURRENTINDEX IS: 19
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR (
-Error at line number 32: expected identifier but got (
-the token -1 away from it is:
-KEYWORD while
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 20
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER low
----==CURRENTINDEX IS: 21
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: OPERATOR <=
-Error at line number 35: expected identifier but got <=
-the token -1 away from it is:
-IDENTIFIER low
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 22
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER high
----==CURRENTINDEX IS: 23
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR )
-Error at line number 39: expected identifier but got )
-the token -1 away from it is:
-IDENTIFIER high
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 24
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR {
----==CURRENTINDEX IS: 25
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: KEYWORD put
-Error at line number 43: expected identifier but got put
-the token -1 away from it is:
-SEPARATOR {
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 26
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR (
----==CURRENTINDEX IS: 27
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 28
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR )
----==CURRENTINDEX IS: 29
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR ;
-Error at line number 48: expected identifier but got ;
-the token -1 away from it is:
-SEPARATOR )
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 30
-TESTINGG
-TESTINGG
-TESTINGG
-KEYWORD put
----==CURRENTINDEX IS: 31
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR (
-Error at line number 52: expected identifier but got (
-the token -1 away from it is:
-KEYWORD put
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 32
-TESTINGG
-TESTINGG
-TESTINGG
-IDENTIFIER tamale
----==CURRENTINDEX IS: 33
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR )
-Error at line number 54: expected identifier but got )
-the token -1 away from it is:
-IDENTIFIER tamale
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 34
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR ;
----==CURRENTINDEX IS: 35
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 36
-TESTINGG
-TESTINGG
-TESTINGG
-OPERATOR =
----==CURRENTINDEX IS: 37
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 38
-TESTINGG
-TESTINGG
-TESTINGG
-OPERATOR +
----==CURRENTINDEX IS: 39
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 40
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR ;
----==CURRENTINDEX IS: 41
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-This is our token: SEPARATOR }
-Error at line number 68: expected identifier but got }
-the token -1 away from it is:
-SEPARATOR ;
-CALLING R13EMPTY()
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 42
-TESTINGG
-TESTINGG
-TESTINGG
-SEPARATOR $$
----==CURRENTINDEX IS: 43
+Error at line number 3: expected $$ but got int
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+<Assign> ::=     <Identifier> = <Expression> ;
+Error at line number 6: expected = but got ,
+<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
+<Term>    ::=      <Term>  *  <Factor>
+<Factor> ::=      -  <Primary>    |    <Primary>
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
+<Primary> ::= ( <IDs> ) | <Empty>
+<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
+<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
+Error at line number 9: expected ; but got ,
+<Statement List> ::= <Statement List>  |  <Empty>
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+<Assign> ::=     <Identifier> = <Expression> ;
+Error at line number 12: expected = but got ;
+<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
+<Term>    ::=      <Term>  *  <Factor>
+<Factor> ::=      -  <Primary>    |    <Primary>
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
+<Primary> ::= ( <IDs> ) | <Empty>
+<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
+<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
+Error at line number 16: expected ; but got =
+<Statement List> ::= <Statement List>  |  <Empty>
+Error at line number 17: expected $$ but got  0
+Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
+--==Tokens==--
+Token: SEPARATOR
+ Lexeme: $$
+--=RULES=--
+Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
+--==END==--
+
+
+--==Tokens==--
+Token: KEYWORD
+ Lexeme: int
+--=RULES=--
+Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+--==END==--
+
+
+--==Tokens==--
+Token: IDENTIFIER
+ Lexeme: i
+--=RULES=--
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+<Assign> ::=     <Identifier> = <Expression> ;
+--==END==--
+
+
+--==Tokens==--
+Token: SEPARATOR
+ Lexeme: ,
+--=RULES=--
+<Assign> ::=     <Identifier> = <Expression> ;
+--==END==--
+
+
+--==Tokens==--
+Token: IDENTIFIER
+ Lexeme: max
+--=RULES=--
+<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
+<Term>    ::=      <Term>  *  <Factor>
+<Factor> ::=      -  <Primary>    |    <Primary>
+<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |
+<Primary> ::= ( <IDs> ) | <Empty>
+--==END==--
+
+
+--==Tokens==--
+Token: IDENTIFIER
+ Lexeme: sum
+--=RULES=--
+<Statement List> ::= <Statement List>  |  <Empty>
+<Statement List> ::=   <Statement>   | <Statement> <Statement List>
+<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While>
+<Assign> ::=     <Identifier> = <Expression> ;
+--==END==--
+
+
+--==Tokens==--
+Token: SEPARATOR
+ Lexeme: ;
+--=RULES=--
+<Assign> ::=     <Identifier> = <Expression> ;
+--==END==--
+
+
+--==Tokens==--
+Token: OPERATOR
+ Lexeme: =
+--=RULES=--
+<Primary> ::= ( <IDs> ) | <Empty>
+<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
+<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
+--==END==--
+
+
+--==Tokens==--
+Token: NUMBER
+ Lexeme:  0
+--=RULES=--
+<Statement List> ::= <Statement List>  |  <Empty>
+Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
+Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
+--==END==--
+
+

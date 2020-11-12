@@ -1,11 +1,15 @@
 $$
-    int num1, num2;
-     integer s;
-	num1 = 8;
-    read(num1, num2);
-    if(num1 < num2)
-    {
-		print(num1);
-		print(doSomething[num1,num2]);
-    }
-$$
+function convertx (fahr int)
+{
+           return  fahr;
+}
+
+     int    low,  high, step;
+
+     while (low  <=  high )
+         {  put (low);
+             put (tamale);
+             low =  low  +  step;
+         }
+
+ $$

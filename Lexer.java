@@ -1,9 +1,8 @@
-
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class    Lexer {
+public class Lexer {
     String input;
 
     public Lexer(String input) {
@@ -38,46 +37,33 @@ public class    Lexer {
             if (matcher.group(TokenType.KEYWORD.name()) != null) {
                 tokens.add(new Token(TokenType.KEYWORD, matcher.group(TokenType.KEYWORD.name()), line));
             } else if ((matcher.group(TokenType.IDENTIFIER.name()) != null)) {
-                tokens.add(new Token(TokenType.IDENTIFIER, matcher.group(TokenType.IDENTIFIER.name()),line));
+                tokens.add(new Token(TokenType.IDENTIFIER, matcher.group(TokenType.IDENTIFIER.name()), line));
             } else if (matcher.group(TokenType.SEPARATOR.name()) != null) {
                 tokens.add(new Token(TokenType.SEPARATOR, matcher.group(TokenType.SEPARATOR.name()), line));
             } else if (matcher.group(TokenType.NUMBER.name()) != null) {
-                tokens.add(new Token(TokenType.NUMBER, matcher.group(TokenType.NUMBER.name()),line));
+                tokens.add(new Token(TokenType.NUMBER, matcher.group(TokenType.NUMBER.name()), line));
             } else if (matcher.group(TokenType.OPERATOR.name()) != null) {
                 tokens.add(new Token(TokenType.OPERATOR, matcher.group(TokenType.OPERATOR.name()), line));
             }
         }
         int number = 0;
-        for(Token t : tokens){
+        for (Token t : tokens) {
 
-            System.out.println("Index: " + number + " "  + t.toString());
+            System.out.println("Index: " + number + " " + t.toString());
             number++;
         }
-        System.out.println("Array Size: "+tokens.size());
+        System.out.println("Array Size: " + tokens.size());
     }
 
 
     public enum TokenType {
-        // The types of tokens we can have
-//        NUMBER("[0-9]*\\.?[0-9]"),
-//        NUMBER("[0-9]*\\.?[0-9]+[0-9]+"),
         NUMBER("\\s[+-]?([0-9]*[.])?[0-9]+"),
-//        OPERATOR("[*|/|+|-]"),
-//        OPERATOR("[*|/|+|-|=|>|<]"), // original. did not match <= or >=
         OPERATOR("(\\*|\\/|\\+|-|=|\\>|<=|>=|<)"),
         WHITESPACE("[ \t\f\r\n]+"),
-//        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float)(?![a-zA-Z0-9])"),
         KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float|put|return)(?![a-zA-Z0-9])"),
-//        IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
         IDENTIFIER("\\b(?!(if|while|int|float|return|get|for|function|print)\\b)\\w+"),
-//        SEPARATOR("[\\$]{2,2}|[^a-zA-Z\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:] //oroginal
-//        SEPARATOR("\\b(?!(\\\\d+)\\b)"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
-//        SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
         SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:\\=\\>\\<]"); //newest one avoids >= and <=
-        //[\$]{2,2}|[^a-zA-Z\\ds:]
-
         public final String pattern;
-
         TokenType(String pattern) {
             this.pattern = pattern;
         }
@@ -87,7 +73,7 @@ public class    Lexer {
         public TokenType type;
         public String data;
         public int lineNumber;
-        public ArrayList<String>PRules;
+        public ArrayList<String> PRules;
 
         public Token(TokenType type, String data, int lineNumber) {
             this.type = type;
@@ -104,17 +90,11 @@ public class    Lexer {
         }
 
 
-        public void addToRules(String s){
-            if(!PRules.isEmpty()){
-                PRules.add(s);
-            }
-//            System.out.println(PRules);
-//            if(!PRules.contains(s)){
-//                PRules.add(s);
-//            }
+        public void addToRules(String s) {
+            PRules.add(s);
         }
 
-        public ArrayList<String> getPRules(){
+        public ArrayList<String> getPRules() {
             return this.PRules;
         }
 
@@ -124,13 +104,11 @@ public class    Lexer {
         }
 
         public void printRules() {
-            if(PRules.size() >= 0){
-                System.out.println("--=RULES=--");
-                for(String s : PRules){
-                    System.out.println(s);
-                }
-                System.out.println("--==END=--");
+            System.out.println("--=RULES=--");
+            for (String s : PRules) {
+                System.out.println(s);
             }
+            System.out.println("--==END==--");
         }
 
     }
