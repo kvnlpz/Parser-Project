@@ -1,18 +1,15 @@
 $$
-function doSomething();
-real test = 12;
-
-function doThis(number)
+function convertx (fahr int)
 {
-	print(number);
+           return  fahr;
 }
 
-int num1, int num2;
-num1 = 7;
-num2 = 8;
+     int    low,  high, step;
 
-if(num1 <= num2)
-{
-   print;
-}
-$$
+     while (low  <=  high )
+         {  put (low);
+             put (tamale);
+             low =  low  +  step;
+         } 
+
+ $$

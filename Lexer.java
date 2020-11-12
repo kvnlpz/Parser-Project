@@ -47,8 +47,11 @@ public class    Lexer {
                 tokens.add(new Token(TokenType.OPERATOR, matcher.group(TokenType.OPERATOR.name()), line));
             }
         }
+        int number = 0;
         for(Token t : tokens){
-            System.out.println(t.toString());
+
+            System.out.println("Index: " + number + " "  + t.toString());
+            number++;
         }
         System.out.println("Array Size: "+tokens.size());
     }
@@ -60,15 +63,17 @@ public class    Lexer {
 //        NUMBER("[0-9]*\\.?[0-9]+[0-9]+"),
         NUMBER("\\s[+-]?([0-9]*[.])?[0-9]+"),
 //        OPERATOR("[*|/|+|-]"),
-        OPERATOR("[*|/|+|-|=|>|<]"),
+//        OPERATOR("[*|/|+|-|=|>|<]"), // original. did not match <= or >=
+        OPERATOR("(\\*|\\/|\\+|-|=|\\>|<=|>=|<)"),
         WHITESPACE("[ \t\f\r\n]+"),
 //        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float)(?![a-zA-Z0-9])"),
-        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float)(?![a-zA-Z0-9])"),
+        KEYWORD("(?<![a-zA-Z0-9])(if|while|int|get|for|function|print|Boolean|real|fi|true|false|float|put|return)(?![a-zA-Z0-9])"),
 //        IDENTIFIER("\\b(?!(if|while|int|get|for)\\b)\\w+"),
         IDENTIFIER("\\b(?!(if|while|int|float|return|get|for|function|print)\\b)\\w+"),
 //        SEPARATOR("[\\$]{2,2}|[^a-zA-Z\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:] //oroginal
 //        SEPARATOR("\\b(?!(\\\\d+)\\b)"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
-        SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
+//        SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:]"); //ORIGINAL : \$+[^a-zA-Z\d\s:]
+        SEPARATOR("[\\$]{2,2}|[^\\sa-zA-Z0-9\\\\ds:\\=\\>\\<]"); //newest one avoids >= and <=
         //[\$]{2,2}|[^a-zA-Z\\ds:]
 
         public final String pattern;

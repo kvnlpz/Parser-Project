@@ -1,15 +1,12 @@
-
-
-import java.awt.print.Printable;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class TokenListManager {
     public boolean isFinished = false;
     public int currentIndex = 0;
+    public PrintStream o;
     ArrayList<Lexer.Token> tokens;
     ArrayList<Lexer.Token> newTokens;
-    public PrintStream o;
 
     public TokenListManager(ArrayList<Lexer.Token> tk, PrintStream o) {
         this.o = o;
@@ -30,7 +27,7 @@ public class TokenListManager {
 
 //        System.out.println("getting the current token!!");
 //        System.out.println("index: "+ this.currentIndex);
-//        System.out.println("token is: " + tokens.get(this.currentIndex).toString());
+        System.out.println("current token is: " + tokens.get(this.currentIndex).toString());
         return tokens.get(this.currentIndex);
     }
 
@@ -54,9 +51,16 @@ public class TokenListManager {
         }
     }
 
+    public void tempNextToken(int amount) {
+        System.out.println("the token " + amount + " away from it is: ");
+        int lol = currentIndex;
+        System.out.println(tokens.get(lol + (amount)).toString());
+    }
+
     public Lexer.Token getNextToken() {
+
         System.out.println("---==CURRENTINDEX IS: " + currentIndex);
-        if (currentIndex >= tokens.size()+1) {
+        if (currentIndex > tokens.size() + 1) {
             isFinished = true;
         }
         //!isFinished &&
@@ -65,7 +69,7 @@ public class TokenListManager {
             System.out.println("CURRENTTOKEN: " + tokens.get(this.currentIndex).toString());
 //            Lexer.Token returnToken = tokens.get(this.currentIndex);
             currentIndex++;
-            System.out.println("GETNEXTTOKEN: " + tokens.get(this.currentIndex).toString());
+//            System.out.println("GETNEXTTOKEN: " + tokens.get(this.currentIndex).toString());
 
             return tokens.get(this.currentIndex);
         } else {
@@ -77,6 +81,7 @@ public class TokenListManager {
 //            return new Lexer.Token();
         }
         //if it hasnt finished AND the next index is still smaller than the size of the array
+
     }
 
 
@@ -92,7 +97,7 @@ public class TokenListManager {
         } else {
             //check the rest of the tokens
             for (Lexer.Token token : newTokens) {
-                if(newToken != null){
+                if (newToken != null) {
                     boolean duplicate = checkEquality(token.getPRules(), newToken.getPRules());
 //                System.out.println("Duplicate: " + duplicate);
 //                System.out.println("token1: " + token.toString());
@@ -114,6 +119,23 @@ public class TokenListManager {
             }
         }
     }
+
+    public void printOldTokenArray() {
+        for (Lexer.Token token : this.tokens) {
+
+
+//            System.out.println("--==Tokens==--");
+
+            System.out.println("Token: " + token.type + " Lexeme: " + token.data);
+//            token.printRules();
+//            System.out.println("  ");
+//            System.out.println("  ");
+
+        }
+
+
+    }
+
 
     public void printTokens() {
 //        System.out.println("==============");

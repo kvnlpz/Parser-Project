@@ -76,6 +76,7 @@ Note: <Identifier>, <Integer>, <Real> are token types as defined in section (1) 
 
 //import com.sun.org.apache.bcel.internal.generic.RETURN;
 
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -150,12 +151,10 @@ public class Parser {
         R1();
     }
 
-    public void R1() {
-        String s = "Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$";
-        if (flag) {System.out.println(s);}
-//            Lexer.Token token = new Lexer.Token(Lexer.TokenType.IDENTIFIER, "", 0);
-        Lexer.Token token = manager.getCurrentToken();
-//        token.addToRules(s);
+    // SAHILS CODE WEDNESDAY CHANGES BY KEVIN
+    /*
+
+    //        token.addToRules(s);
 //        manager.addToNewArray(token);
         token = R2(token); //OFD
         manager.addToNewArray(token);
@@ -174,11 +173,70 @@ public class Parser {
 //                System.out.println("this is the token: " + token.toString());
                 printError(token, "$$");
             }
-            manager.printTokens();
+
+     */
+
+
+
+
+
+    public void R1() {
+        String s = "Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$";
+        if (flag) {System.out.println(s);}
+//            Lexer.Token token = new Lexer.Token(Lexer.TokenType.IDENTIFIER, "", 0);
+        Lexer.Token token = manager.getCurrentToken();
+//        System.out.println("HERE'S THE VERY FIRST TOKEN->"+token.toString());
+        token = R2(token);
+//        System.out.println("HERE IT IS AFTER R2()->"+token.toString());
+        if(!token.data.equals("$$")){
+            printError(token, "$$");
+        }
+
+        token = R10(token); //ODL
+        token = R14(token); //STATEMENTLIST
+        if(!token.data.equals("$$")){
+            printError(token, "$$");
+        }
+//
+//
+//          /*
+//
+            token.addToRules(s);
+        manager.addToNewArray(token);
+        token = R2(token); //OFD
+        manager.addToNewArray(token);
+        if (token.data.equals("$$")) {
+            token = R10(token); //ODL
+           manager.addToNewArray(token);
+            R14(token); // STATEMENT LIST
+        }
+
+//
+
+
+            // }
+            else {
+//                System.out.println("THIS IS WHERE THE ERROR WOULD HAVE BEEN");
+//                System.out.println("this is the token: " + token.toString());
+//            System.out.println("else else else");
+//                printError(token, "$$");
+//                manager.tempNextToken(-2);
+//                manager.tempNextToken(-1);
+//                manager.tempNextToken(0);
+//                manager.tempNextToken(1);
+            }
+
+
+
+
+
+
+//        manager.printTokens();
 
     }
 
 
+    //OFD
     //OPT FUNCTION DEFINITION EMPTY
     public Lexer.Token R2(Lexer.Token token) {
         String s = "Opt Function Definitions> ::= <Function Definitions>     |  <Empty>";
@@ -187,32 +245,51 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+
         token = manager.getNextToken();
         token.addToRules(s);
         manager.addToNewArray(token);
 
-        //if (!token.data.equals("function"
+
+        //check to see if the next lexeme is the function keyword
         if (!(token.data.equals("function"))) {
-            return manager.getCurrentToken();
+            return manager.getCurrentToken(); //if it isnt, return the NEXT token after that
         }
+//
+//        if (token.data.equals ("$$")) {
+//            R29(manager.getCurrentToken());
+//        }
 
-        if (token.data.equals ("$$")) {
-            R29(manager.getCurrentToken());
-        }
 
-
+        //if it does equal the word FUNCTION, then we go to r3 to check for function definitions
         return R3(token);
     }
 
     // FUNCTION DEFINITION
     public Lexer.Token R3(Lexer.Token token) {
-        String s = "Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ";
+
+//        System.out.println("ALL OLD TOKENS");
+//        System.out.println("ALL OLD TOKENS");
+//        System.out.println("ALL OLD TOKENS");
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//        manager.printOldTokenArray();
+//        System.out.println();
+//        System.out.println();
+//        System.out.println();
+//        System.out.println("ALL OLD TOKENS");
+//        System.out.println("ALL OLD TOKENS");
+        String s = "<Function Definitions>  ::= <Function> | <Function> <Function Definitions>   ";
         token.addToRules(s);
         manager.addToNewArray(token);
 
         if (flag) {
             System.out.println(s);
         }
+
+
+        //send it to the functon rule
         R4(token);//FUNCTION
         //send to FUNC  EMPTY
         return R4EMPTY(token);
@@ -228,18 +305,45 @@ public class Parser {
             System.out.println(s);
         }
 //        manager.getCurrentToken();
-        token = manager.getNextToken();
-        token = R13(token);//IDS
+        token = manager.getNextToken(); // get the NEXT token whixh is the identifier
+//        System.out.println("After calling getNextToken()->"+token.toString());
+//        System.out.println("After calling getNextToken()->"+token.toString());
+//        System.out.println("After calling getNextToken()->"+token.toString());
+//        System.out.println("After calling getNextToken()->"+token.toString());
+        System.out.println("setting and ggetting r13 from r4");
+        token = R13(token);//IDS // set the token equal to the output of the ID function
+//        System.out.println("After calling R13(): token->"+token.toString());
+//        System.out.println("After calling R13(): token->"+token.toString());
+//        System.out.println("After calling R13(): token->"+token.toString());
+//        System.out.println("After calling R13(): token->"+token.toString());
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("TOKEN->" + token.toString());
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        token = manager.getNextToken();
+
         if (!token.data.equals("(")) {
-            printError(token, "Missing left parenthesis '('");
+            printError(token, "(");
         }
         //OPL
-        token = R5(token);
+        token = R5(token);//OPL OPT PARAMETER LUST
+        showprints();
         if (!token.data.equals(")")) {
-            printError(token, "Missing right parenthesis ')'");
+            printError(token, ")");
         }
         token = R10(token);//ODL
-        R9(token);
+        R9(token); // BODY
+    }
+
+    private void showprints() {
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
+//        System.out.println("inside R4()");
     }
 
     //public Lexer.Token R4Empty(Lexer.Token token)
@@ -273,6 +377,15 @@ public class Parser {
         token = manager.getNextToken(); //get the new latest token
         token.addToRules(s);
         manager.addToNewArray(token);
+//        System.out.println("inside R5()");
+//        System.out.println("inside R5()");
+        System.out.println("inside R5()");
+        manager.tempNextToken(-1);
+        manager.tempNextToken(0);
+        System.out.println("TOKEN->"+token.toString());
+        manager.tempNextToken(1);
+
+
         if (token.type != Lexer.TokenType.IDENTIFIER) {
 //            return R6(manager.getNextToken());
             return token;
@@ -326,7 +439,7 @@ public class Parser {
         if (token.data.equals("int") || token.data.equals("boolean") || token.data.equals("real")) {
             return; //break
         } else {
-            printError(manager.getCurrentToken(), "NUMBER TYPE");//send in the token to print out the error
+            printError(token, "NUMBER TYPE");//send in the token to print out the error
         }
     }
 
@@ -344,7 +457,8 @@ public class Parser {
         }
         token = manager.getNextToken();
         token = R14(token); //satement list
-        if (token.data.equals("}")) {
+        //WHAT does r14 return after calling it?
+        if (!token.data.equals("}")) {
             printError(token, "}"); //print out token and expected: }
         }
     }
@@ -378,7 +492,10 @@ public class Parser {
             System.out.println(s);
         }
         token = R12(token);//DECLARATION
-        if (token.data.equals(";")) {
+//        System.out.println("inside R11()");
+//        System.out.println("inside R11()");
+//        System.out.println("inside R11()");
+        if (!token.data.equals(";")) {
             printError(token, ";");
         }
         return R11Empty(manager.getNextToken());
@@ -409,9 +526,12 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        R8(token);//QUALIFIER
-        token = manager.getNextToken();
-        return R13(token);
+        R8(token);//QUALIFIERS
+        //start with INT
+        //from int to low
+        token = manager.getNextToken(); //token now = "low"
+        System.out.println("calling r13 from r12");
+        return R13(token); // IDENTIFIERS
     }
 
     //Identifiers
@@ -423,17 +543,28 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        if (token.type != Lexer.TokenType.IDENTIFIER) {
+//        System.out.println("This is our token while in R13()->"+token.toString());
+        if (!(token.type.equals(Lexer.TokenType.IDENTIFIER))) {
             System.out.println("this is WHERE THE ERROR IS");
+            System.out.println("This is our token: "+token.toString());
             printError(token, "identifier");
+//            int away = -1;
+//            System.out.println("the token " + away  + " away from it is: " + manager.tempNextToken(-1));
+            manager.tempNextToken(-1);
         }
+//        System.out.println("Tokentype was not IDENTIFIER:");
+//        System.out.println("tOKEN: " + token.toString());
+//
+        System.out.println("CALLING R13EMPTY()");
         token = R13Empty(token);
+//        System.out.println("AFTER R13EMPTY()->" + token.toString());
         manager.addToNewArray(token);
         //return R13Empty(token);
         return  token;
 
     }
 
+    //Ids continue
     private Lexer.Token R13Empty(Lexer.Token token) {
         String s = "<IDs> ::=     <Identifier>    | <Identifier>, <Empty>";
         token.addToRules(s);
@@ -443,10 +574,17 @@ public class Parser {
             System.out.println(s);
         }
         token = manager.getNextToken();
+        System.out.println("TESTINGG");
+        System.out.println("TESTINGG");
+        System.out.println("TESTINGG");
+        System.out.println(token.toString());
+//        System.out.println("INSIDE R13EMPTY()->"+token.toString());
         if (token.data.equals(",")) {
             return R13(manager.getNextToken());//calling ID function
-        } else {
-            return token;
+        }
+        else {
+//            return token;
+            return R13(manager.getNextToken());
         }
     }
 
@@ -463,7 +601,7 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        R15(token);//Statement
+        R15(token);//Statement //what does r15 do then?
         return R14Empty(manager.getNextToken());
     }
 
@@ -496,6 +634,8 @@ public class Parser {
         token.addToRules(s);
         manager.addToNewArray(token);
 
+        System.out.println("R15()->TOKEN:"+token.toString());
+
         if (flag) {
             System.out.println(s);
         }
@@ -504,6 +644,9 @@ public class Parser {
             R16(token);
         } else if (token.type == Lexer.TokenType.IDENTIFIER) //might have to change back to IDENTIFIER
         {
+            System.out.println("------");
+            System.out.println(token.toString());
+            System.out.println("------");
             //assign
             R17(token);
         } else if (token.data.equals("if")) {
@@ -522,7 +665,7 @@ public class Parser {
             //while
             R22(token);
         } else {
-            printError(token, "{ or OR IDENTIFIER OR KEYWORD");
+            printError(token, "{ or identifier or if or return or put or get or whileD");
         }
     }
 
@@ -535,13 +678,17 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        //so we gave it the token that is {, then we overwrote that token by getting the next
+        //next one, which ended up being, idk, return and passing it back to r14,
+        //and it continues
+
         token = R14(manager.getNextToken());
-        System.out.println("__________--------------______");
-        System.out.println("__________--------------______");
-        System.out.println("COMPOUND COMPOUND");
-        System.out.println(token.toString());
-        System.out.println("__________--------------______");
-        System.out.println("__________--------------______");
+//        System.out.println("__________--------------______");
+//        System.out.println("__________--------------______");
+//        System.out.println("COMPOUND COMPOUND");
+//        System.out.println(token.toString());
+//        System.out.println("__________--------------______");
+//        System.out.println("__________--------------______");
         manager.addToNewArray(token);
         if (!token.data.equals("}")) {
             printError(token, "}");
@@ -567,17 +714,30 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
+        System.out.println("token: "+ token);
         token = manager.getNextToken();
+        System.out.println("new : "+ token);
         token.addToRules(s);
         manager.addToNewArray(token);
         if (!token.data.equals("=")) {
+            System.out.println("im right here lmao");
             printError(token, "=");
         }
         token = R25(manager.getNextToken());//Expression
         manager.addToNewArray(token);
+        System.out.println("inside R17()");
+        System.out.println("inside R17()");
+        System.out.println("inside R17()");
+        System.out.println("inside R17()");
         if (!token.data.equals(";")) {
-            System.out.println("HIS IS WHERE THE ERROR IS");
+            System.out.println("THIS IS WHERE THE ERROR IS");
             printError(token, ";");
+            manager.tempNextToken(-3);
+            manager.tempNextToken(-2);
+            manager.tempNextToken(-1);
+            manager.tempNextToken(0);
+            manager.tempNextToken(1);
+            manager.tempNextToken(2);
         }
     }
 
@@ -590,14 +750,19 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        System.out.println("R18 COMPARINGLEXEMES");
-        System.out.println("R18 COMPARINGLEXEMES");
-        System.out.println("R18 COMPARINGLEXEMES");
+//        System.out.println("R18 COMPARINGLEXEMES");
+//        System.out.println("R18 COMPARINGLEXEMES");
+//        System.out.println("R18 COMPARINGLEXEMES");
 
         compareLexemes("(");//CHECK THIS FUCNCTION
         R23(token);//CONDITION FUNCTION
+        System.out.println("R18()");
+//        token = manager.getNextToken();//DELETE SOON
         compareLexemes(")");
+//        System.out.println("CALLING R15");
+        System.out.println("CALLING R15 FROM R18");
         R15(manager.getNextToken());//STATEMENT
+        System.out.println("CALLING R18FI");
         R18FI(manager.getNextToken());//IF FI
     }
 
@@ -612,10 +777,11 @@ public class Parser {
         if (token.data.equals("fi")) {
             return;
         } else if (token.data.equals("else")) {
+            System.out.println("CALLING R15 FROMR18FI");
             R15(manager.getNextToken());//STATEMENT
             System.out.println("R18fi COMPARINGLEXEMES");
-            System.out.println("R18fi COMPARINGLEXEMES");
-            System.out.println("R18fi COMPARINGLEXEMES");
+//            System.out.println("R18fi COMPARINGLEXEMES");
+//            System.out.println("R18fi COMPARINGLEXEMES");
 
             compareLexemes("fi");//CHECKLEXEMES
         }
@@ -661,9 +827,11 @@ public class Parser {
         if (token.data.equals(";")) {
             return;
         } else {
-            token = R25(token); //EXPRESSION
+//            token = R25(token); //EXPRESSION
+            token = R13(token); //EXPRESSION
             manager.addToNewArray(token);
         }
+        System.out.println("inside R19SEMICOLON()");
         if (!token.data.equals(";")) {
             printError(token, ";");
         }
@@ -678,22 +846,20 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        System.out.println("R20 COMPARINGLEXEMES");
-        System.out.println("R20 COMPARINGLEXEMES");
+//        System.out.println("R20 COMPARINGLEXEMES");
+//        System.out.println("R20 COMPARINGLEXEMES");
         System.out.println("R20 COMPARINGLEXEMES");
         compareLexemes("(");
         token = R25(manager.getNextToken());
         manager.addToNewArray(token);
         System.out.println("R20 COMPARINGLEXEMES");
-        System.out.println("R20 COMPARINGLEXEMES");
+//        System.out.println("R20 COMPARINGLEXEMES");
 
         if (!token.data.equals(")")) {
             printError(token, ")");
         }
+//        System.out.println("R20 COMPARINGLEXEMES");
         System.out.println("R20 COMPARINGLEXEMES");
-        System.out.println("R20 COMPARINGLEXEMES");
-
-
         compareLexemes(";");
     }
 
@@ -707,17 +873,19 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        System.out.println("R21 COMPARINGLEXEMES");
-        System.out.println("R21 COMPARINGLEXEMES");
+//        System.out.println("R21 COMPARINGLEXEMES");
+//        System.out.println("R21 COMPARINGLEXEMES");
         System.out.println("R21 COMPARINGLEXEMES");
 
         compareLexemes("(");
+
+        System.out.println("calling r13 from r21");
         token = R13(manager.getNextToken());//IDS
         manager.addToNewArray(token);
-        if (token.data.equals(")")) {
+        if (!token.data.equals(")")) { //changed on wednesday
             printError(token, ")");
         }
-        System.out.println("R21 COMPARINGLEXEMES");
+//        System.out.println("R21 COMPARINGLEXEMES");
         System.out.println("R21 COMPARINGLEXEMES");
 
         compareLexemes(";");
@@ -733,8 +901,8 @@ public class Parser {
         if (flag) {
             System.out.println(s);
         }
-        System.out.println("R22 COMPARINGLEXEMES");
-        System.out.println("R22 COMPARINGLEXEMES");
+//        System.out.println("R22 COMPARINGLEXEMES");
+//        System.out.println("R22 COMPARINGLEXEMES");
         System.out.println("R22 COMPARINGLEXEMES");
 
         compareLexemes("(");
@@ -744,6 +912,7 @@ public class Parser {
             printError(token, ")");
 
         }
+        System.out.println("CALLING R15 FROM R22()");
         //Statement
         R15(manager.getNextToken());
         return;

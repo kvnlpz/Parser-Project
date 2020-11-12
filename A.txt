@@ -1,228 +1,318 @@
-SEPARATOR $$
-KEYWORD function
-IDENTIFIER doSomething
-SEPARATOR (
-SEPARATOR )
-SEPARATOR ;
-KEYWORD real
-IDENTIFIER test
-OPERATOR =
-NUMBER  12
-SEPARATOR ;
-KEYWORD function
-IDENTIFIER doThis
-SEPARATOR (
-IDENTIFIER number
-SEPARATOR )
-SEPARATOR {
-KEYWORD print
-SEPARATOR (
-IDENTIFIER number
-SEPARATOR )
-SEPARATOR ;
-SEPARATOR }
-KEYWORD int
-IDENTIFIER num1
-SEPARATOR ,
-KEYWORD int
-IDENTIFIER num2
-SEPARATOR ;
-IDENTIFIER num1
-OPERATOR =
-NUMBER  7
-SEPARATOR ;
-IDENTIFIER num2
-OPERATOR =
-NUMBER  8
-SEPARATOR ;
-KEYWORD if
-SEPARATOR (
-IDENTIFIER num1
-OPERATOR <
-OPERATOR =
-IDENTIFIER num2
-SEPARATOR )
-SEPARATOR {
-KEYWORD print
-SEPARATOR ;
-SEPARATOR }
-SEPARATOR $$
-Array Size: 49
-[SEPARATOR $$, KEYWORD function, IDENTIFIER doSomething, SEPARATOR (, SEPARATOR ), SEPARATOR ;, KEYWORD real, IDENTIFIER test, OPERATOR =, NUMBER  12, SEPARATOR ;, KEYWORD function, IDENTIFIER doThis, SEPARATOR (, IDENTIFIER number, SEPARATOR ), SEPARATOR {, KEYWORD print, SEPARATOR (, IDENTIFIER number, SEPARATOR ), SEPARATOR ;, SEPARATOR }, KEYWORD int, IDENTIFIER num1, SEPARATOR ,, KEYWORD int, IDENTIFIER num2, SEPARATOR ;, IDENTIFIER num1, OPERATOR =, NUMBER  7, SEPARATOR ;, IDENTIFIER num2, OPERATOR =, NUMBER  8, SEPARATOR ;, KEYWORD if, SEPARATOR (, IDENTIFIER num1, OPERATOR <, OPERATOR =, IDENTIFIER num2, SEPARATOR ), SEPARATOR {, KEYWORD print, SEPARATOR ;, SEPARATOR }, SEPARATOR $$]
+Index: 0 SEPARATOR $$
+Index: 1 KEYWORD function
+Index: 2 IDENTIFIER convertx
+Index: 3 SEPARATOR (
+Index: 4 IDENTIFIER fahr
+Index: 5 KEYWORD int
+Index: 6 SEPARATOR )
+Index: 7 SEPARATOR {
+Index: 8 KEYWORD return
+Index: 9 IDENTIFIER fahr
+Index: 10 SEPARATOR ;
+Index: 11 SEPARATOR }
+Index: 12 KEYWORD int
+Index: 13 IDENTIFIER low
+Index: 14 SEPARATOR ,
+Index: 15 IDENTIFIER high
+Index: 16 SEPARATOR ,
+Index: 17 IDENTIFIER step
+Index: 18 SEPARATOR ;
+Index: 19 KEYWORD while
+Index: 20 SEPARATOR (
+Index: 21 IDENTIFIER low
+Index: 22 OPERATOR <=
+Index: 23 IDENTIFIER high
+Index: 24 SEPARATOR )
+Index: 25 SEPARATOR {
+Index: 26 KEYWORD put
+Index: 27 SEPARATOR (
+Index: 28 IDENTIFIER low
+Index: 29 SEPARATOR )
+Index: 30 SEPARATOR ;
+Index: 31 KEYWORD put
+Index: 32 SEPARATOR (
+Index: 33 IDENTIFIER tamale
+Index: 34 SEPARATOR )
+Index: 35 SEPARATOR ;
+Index: 36 IDENTIFIER low
+Index: 37 OPERATOR =
+Index: 38 IDENTIFIER low
+Index: 39 OPERATOR +
+Index: 40 IDENTIFIER step
+Index: 41 SEPARATOR ;
+Index: 42 SEPARATOR }
+Index: 43 SEPARATOR $$
+Array Size: 44
+[SEPARATOR $$, KEYWORD function, IDENTIFIER convertx, SEPARATOR (, IDENTIFIER fahr, KEYWORD int, SEPARATOR ), SEPARATOR {, KEYWORD return, IDENTIFIER fahr, SEPARATOR ;, SEPARATOR }, KEYWORD int, IDENTIFIER low, SEPARATOR ,, IDENTIFIER high, SEPARATOR ,, IDENTIFIER step, SEPARATOR ;, KEYWORD while, SEPARATOR (, IDENTIFIER low, OPERATOR <=, IDENTIFIER high, SEPARATOR ), SEPARATOR {, KEYWORD put, SEPARATOR (, IDENTIFIER low, SEPARATOR ), SEPARATOR ;, KEYWORD put, SEPARATOR (, IDENTIFIER tamale, SEPARATOR ), SEPARATOR ;, IDENTIFIER low, OPERATOR =, IDENTIFIER low, OPERATOR +, IDENTIFIER step, SEPARATOR ;, SEPARATOR }, SEPARATOR $$]
 Rat20F>  ::=   <Opt Function Definitions>   $$  <Opt Declaration List>  <Statement List>  $$
+current token is: SEPARATOR $$
 Opt Function Definitions> ::= <Function Definitions>     |  <Empty>
 ---==CURRENTINDEX IS: 0
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
+<Function Definitions>  ::= <Function> | <Function> <Function Definitions>
 Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
 ---==CURRENTINDEX IS: 1
+setting and ggetting r13 from r4
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 2
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR (
 ---==CURRENTINDEX IS: 3
-<Opt Declaration List> ::= <Declaration List> | <Empty>
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 4
-<Body>  ::=  {  < Statement List>  }
-Error at line number 7: expected { but got ;
+TESTINGG
+TESTINGG
+TESTINGG
+KEYWORD int
 ---==CURRENTINDEX IS: 5
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-Error at line number 8: expected { or OR IDENTIFIER OR KEYWORD but got real
----==CURRENTINDEX IS: 6
-<Statement List> ::= <Statement List>  |  <Empty>
-<Function Definitions>' ::= <Function Definitions> | <Empty>
----==CURRENTINDEX IS: 7
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
----==CURRENTINDEX IS: 8
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 this is WHERE THE ERROR IS
-Error at line number 13: expected identifier but got  12
+This is our token: SEPARATOR )
+Error at line number 10: expected identifier but got )
+the token -1 away from it is:
+KEYWORD int
+CALLING R13EMPTY()
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 6
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR {
+---==CURRENTINDEX IS: 7
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: KEYWORD return
+Error at line number 13: expected identifier but got return
+the token -1 away from it is:
+SEPARATOR {
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 8
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER fahr
 ---==CURRENTINDEX IS: 9
-Error at line number 14: expected Missing left parenthesis '(' but got ;
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR ;
+Error at line number 16: expected identifier but got ;
+the token -1 away from it is:
+IDENTIFIER fahr
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 10
-Error at line number 15: expected Missing right parenthesis ')' but got function
-<Opt Declaration List> ::= <Declaration List> | <Empty>
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR }
 ---==CURRENTINDEX IS: 11
-<Body>  ::=  {  < Statement List>  }
-Error at line number 17: expected { but got doThis
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: KEYWORD int
+Error at line number 19: expected identifier but got int
+the token -1 away from it is:
+SEPARATOR }
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 12
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-Error at line number 18: expected { or OR IDENTIFIER OR KEYWORD but got (
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER low
 ---==CURRENTINDEX IS: 13
-<Statement List> ::= <Statement List>  |  <Empty>
-<Function Definitions>' ::= <Function Definitions> | <Empty>
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR ,
+Error at line number 22: expected identifier but got ,
+the token -1 away from it is:
+IDENTIFIER low
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 14
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER high
 ---==CURRENTINDEX IS: 15
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 this is WHERE THE ERROR IS
-Error at line number 21: expected identifier but got {
+This is our token: SEPARATOR ,
+Error at line number 25: expected identifier but got ,
+the token -1 away from it is:
+IDENTIFIER high
+CALLING R13EMPTY()
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 16
-Error at line number 23: expected Missing left parenthesis '(' but got print
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER step
 ---==CURRENTINDEX IS: 17
-Error at line number 24: expected Missing right parenthesis ')' but got (
-<Opt Declaration List> ::= <Declaration List> | <Empty>
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR ;
+Error at line number 28: expected identifier but got ;
+the token -1 away from it is:
+IDENTIFIER step
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 18
-<Body>  ::=  {  < Statement List>  }
-Error at line number 25: expected { but got number
+TESTINGG
+TESTINGG
+TESTINGG
+KEYWORD while
 ---==CURRENTINDEX IS: 19
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-Error at line number 26: expected { or OR IDENTIFIER OR KEYWORD but got )
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR (
+Error at line number 32: expected identifier but got (
+the token -1 away from it is:
+KEYWORD while
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 20
-<Statement List> ::= <Statement List>  |  <Empty>
-<Function Definitions>' ::= <Function Definitions> | <Empty>
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER low
 ---==CURRENTINDEX IS: 21
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: OPERATOR <=
+Error at line number 35: expected identifier but got <=
+the token -1 away from it is:
+IDENTIFIER low
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
 ---==CURRENTINDEX IS: 22
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-this is WHERE THE ERROR IS
-Error at line number 29: expected identifier but got int
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER high
 ---==CURRENTINDEX IS: 23
-Error at line number 31: expected Missing left parenthesis '(' but got num1
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
----==CURRENTINDEX IS: 24
-Error at line number 32: expected Missing right parenthesis ')' but got ,
-<Opt Declaration List> ::= <Declaration List> | <Empty>
----==CURRENTINDEX IS: 25
-<Declaration List>  := <Declaration> ;     |      <Declaration> ; <Declaration List>
-<Declaration> ::=   <Qualifier > <IDs> 
-Qualifier> ::= int     |    boolean    |  real 
----==CURRENTINDEX IS: 26
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 27
-Error at line number 37: expected ; but got ;
----==CURRENTINDEX IS: 28
-<Declaration List> ::= <Declaration List>  |  <Empty>
-<Body>  ::=  {  < Statement List>  }
-Error at line number 38: expected { but got num1
----==CURRENTINDEX IS: 29
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-Error at line number 40: expected { or OR IDENTIFIER OR KEYWORD but got =
----==CURRENTINDEX IS: 30
-<Statement List> ::= <Statement List>  |  <Empty>
-<Function Definitions>' ::= <Function Definitions> | <Empty>
----==CURRENTINDEX IS: 31
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
----==CURRENTINDEX IS: 32
-<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
-<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 33
-Error at line number 45: expected Missing left parenthesis '(' but got =
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
----==CURRENTINDEX IS: 34
-Error at line number 46: expected Missing right parenthesis ')' but got  8
-<Opt Declaration List> ::= <Declaration List> | <Empty>
----==CURRENTINDEX IS: 35
-<Body>  ::=  {  < Statement List>  }
-Error at line number 47: expected { but got ;
----==CURRENTINDEX IS: 36
-<Statement List> ::=   <Statement>   | <Statement> <Statement List>
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-<If> ::=     if  ( <Condition>  ) <Statement>   IF
-R18 COMPARINGLEXEMES
-R18 COMPARINGLEXEMES
-R18 COMPARINGLEXEMES
-COMAARING LEXEMES LLOOL
-CurrentToken:   KEYWORD if
----==CURRENTINDEX IS: 37
-nowCURRENTTOKEN:    SEPARATOR (
-<Condition> ::=     <Expression>  <Relop>   <Expression>
----==CURRENTINDEX IS: 38
-<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
-<Term>    ::=      <Term>  *  <Factor>
-<Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
-<Primary> ::= ( <IDs> ) | <Empty>
----==CURRENTINDEX IS: 39
-INSIDE R28EMPTY
-INSIDE R28EMPTY
-INSIDE R28EMPTY
-<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
-<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
-<Relop> ::=        ==   |   !=    |   >     |   <    |  <=   |    =>        
----==CURRENTINDEX IS: 40
-<Expression>  ::=    <Expression> + <Term>    | <Expression>  - <Term>    |    <Term>
-<Term>    ::=      <Term>  *  <Factor>
-<Factor> ::=      -  <Primary>    |    <Primary>
-<Primary> ::=     <Identifier>  |  <Integer>  |   <Identifier>  ( <IDs> )   |   ( <Expression> )   |  
-Error at line number 53: expected NUMBER but got =
-<Term>    ::=      <Term>  *  <Factor>     |   <Term>  /  <Factor>     |     <EMPTY>
-<Expression> ::= + <Term> <Expression> | - <Term> <Expression> | <Empty>
-COMAARING LEXEMES LLOOL
-CurrentToken:   OPERATOR =
----==CURRENTINDEX IS: 41
-nowCURRENTTOKEN:    IDENTIFIER num2
-Error at line number 55: expected ) but got num2
----==CURRENTINDEX IS: 42
-<Statement> ::=   <Compound>  |  <Assign>  |   <If>  |  <Return>   | <Print>   |   <Scan>   |  <While> 
-Error at line number 56: expected { or OR IDENTIFIER OR KEYWORD but got )
----==CURRENTINDEX IS: 43
-if  ( <Condition>  ) <Statement>   else  <Statement>  fi 
----==CURRENTINDEX IS: 44
-<Statement List> ::= <Statement List>  |  <Empty>
-<Function Definitions>' ::= <Function Definitions> | <Empty>
----==CURRENTINDEX IS: 45
-Function Definitions>  ::= <Function> | <Function> <Function Definitions>   
-Function> ::= function  <Identifier>   ( <Opt Parameter List> )  <Opt Declaration List>  <Body>
----==CURRENTINDEX IS: 46
 <IDs> ::=     <Identifier>    | <Identifier>, <IDs>
 this is WHERE THE ERROR IS
-Error at line number 61: expected identifier but got }
+This is our token: SEPARATOR )
+Error at line number 39: expected identifier but got )
+the token -1 away from it is:
+IDENTIFIER high
+CALLING R13EMPTY()
 <IDs> ::=     <Identifier>    | <Identifier>, <Empty>
----==CURRENTINDEX IS: 47
-Error at line number 62: expected Missing left parenthesis '(' but got $$
-Opt Parameter List> ::=  <Parameter List>    |     <Empty>
----==CURRENTINDEX IS: 48
+---==CURRENTINDEX IS: 24
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR {
+---==CURRENTINDEX IS: 25
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: KEYWORD put
+Error at line number 43: expected identifier but got put
+the token -1 away from it is:
+SEPARATOR {
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 26
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR (
+---==CURRENTINDEX IS: 27
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 28
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR )
+---==CURRENTINDEX IS: 29
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR ;
+Error at line number 48: expected identifier but got ;
+the token -1 away from it is:
+SEPARATOR )
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 30
+TESTINGG
+TESTINGG
+TESTINGG
+KEYWORD put
+---==CURRENTINDEX IS: 31
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR (
+Error at line number 52: expected identifier but got (
+the token -1 away from it is:
+KEYWORD put
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 32
+TESTINGG
+TESTINGG
+TESTINGG
+IDENTIFIER tamale
+---==CURRENTINDEX IS: 33
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR )
+Error at line number 54: expected identifier but got )
+the token -1 away from it is:
+IDENTIFIER tamale
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 34
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR ;
+---==CURRENTINDEX IS: 35
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 36
+TESTINGG
+TESTINGG
+TESTINGG
+OPERATOR =
+---==CURRENTINDEX IS: 37
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 38
+TESTINGG
+TESTINGG
+TESTINGG
+OPERATOR +
+---==CURRENTINDEX IS: 39
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 40
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR ;
+---==CURRENTINDEX IS: 41
+<IDs> ::=     <Identifier>    | <Identifier>, <IDs>
+this is WHERE THE ERROR IS
+This is our token: SEPARATOR }
+Error at line number 68: expected identifier but got }
+the token -1 away from it is:
+SEPARATOR ;
+CALLING R13EMPTY()
+<IDs> ::=     <Identifier>    | <Identifier>, <Empty>
+---==CURRENTINDEX IS: 42
+TESTINGG
+TESTINGG
+TESTINGG
+SEPARATOR $$
+---==CURRENTINDEX IS: 43
