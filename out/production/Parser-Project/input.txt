@@ -1,5 +1,5 @@
 $$
-    int      i, max, sum;
+    int      i, max, sum; /* this is a comment */
     sum = 0;
     i = 1;
     get ( max);
@@ -8,6 +8,7 @@ $$
           i  = i + 1;
 	}
 else{
+	//another comment
 	sum = 8;
 	sum =10;
 }
